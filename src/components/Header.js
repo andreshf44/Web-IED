@@ -6,13 +6,204 @@ const Header = () => {
   const [selectedService, setSelectedService] = useState(null); // Estado para almacenar el servicio seleccionado
   const [isMenuVisible, setIsMenuVisible] = useState(false); // Estado para controlar la visibilidad del menu
   const [activeService, setActiveService] = useState(null); // Para gestionar el servicio activo
-   const [activeMenuItem, setActiveMenuItem] = useState(null);
+  const [activeMenuItem, setActiveMenuItem] = useState(null);
+  const [isCountriesVisible, setIsCountriesVisible] = useState(false);// Estado para manejar la visibilidad de la lista de países
 
   // Datos de los servicios
   
   const services = [
     {
       id: 1,
+      name: 'Beneficios',
+      description: (
+        <>
+          <div className="columns-container">
+            {/* Columna 1 */}
+            <div className="column beneficios">
+              <h4>Mejora las habilidades en cualquier puesto y prospera al enfrentar el cambio</h4>
+              <p>Prepara a tus empleados para la IA generativa y otras clases de aceleración 
+                tecnológica con habilidades alineadas con el trabajo, perspectivas basadas en datos, 
+                y contenido y credenciales confiables.</p>
+              <ul>
+                <li>Cierra brechas en las habilidades</li>
+                <li>Desarrolla los talentos</li>
+                <li>Conserva los talentos</li>
+                <li>Vuelve a capacitar a los talentos</li>
+              </ul>
+              <a href="#vermas1" className="ver-mas-link">
+                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
+              </a>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: 1,
+      name: 'Soluciones',
+      description: (
+        <>
+          <div className="columns-container">
+            <div className="column">
+              <span>Course builder</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Integraciones</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>LevelSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>SkillSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Panel de habilidades</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Speex</span>
+              <p> Descripción breve</p>
+            </div>
+           
+          </div>
+          <a href="#vermas" className="ver-mas-link">
+              Ver más <span>&#8594;</span>
+          </a>
+        </>
+      ),
+    },
+    {
+      id: 2,
+      name: 'Beneficios',
+      description: (
+        <>
+          <div className="columns-container">
+            {/* Columna 1 */}
+            <div className="column beneficios">
+              <h4>Fortalece la inserción laboral para atraer a un mayor número de estudiantes</h4>
+              <p>Capacita a los estudiantes con las habilidades más demandadas y prepáralos para 
+                alcanzar el éxito en el mundo laboral.</p>
+              <ul>
+                <li>Vincula planes de estudios a carreras profesionales</li>
+                <li>Mejora los resultados laborales</li>
+                <li>Mejora las experiencias de aprendizajes</li>
+                <li>Contenido de nivel mundial</li>
+              </ul>
+              <a href="#vermas1" className="ver-mas-link">
+                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
+              </a>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: 2,
+      name: 'Soluciones',
+      description: (
+        <>
+          <div className="columns-container">
+            <div className="column">
+              <span>Course builder</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Integraciones</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>LevelSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>SkillSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Panel de habilidades</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Speex</span>
+              <p> Descripción breve</p>
+            </div>
+           
+          </div>
+          <a href="#vermas" className="ver-mas-link">
+              Ver más <span>&#8594;</span>
+          </a>
+        </>
+      ),
+    },
+    {
+      id: 3,
+      name: 'Beneficios',
+      description: (
+        <>
+          <div className="columns-container">
+            {/* Columna 1 */}
+            <div className="column beneficios">
+              <h4>Fortalece la inserción laboral para atraer a un mayor número de estudiantes</h4>
+              <p>Capacita a los estudiantes con las habilidades más demandadas y prepáralos para 
+                alcanzar el éxito en el mundo laboral.</p>
+              <ul>
+                <li>Vincula planes de estudios a carreras profesionales</li>
+                <li>Mejora los resultados laborales</li>
+                <li>Mejora las experiencias de aprendizajes</li>
+                <li>Contenido de nivel mundial</li>
+              </ul>
+              <a href="#vermas1" className="ver-mas-link">
+                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
+              </a>
+            </div>
+          </div>
+        </>
+      ),
+    },
+    {
+      id: 3,
+      name: 'Soluciones',
+      description: (
+        <>
+          <div className="columns-container">
+            <div className="column">
+              <span>Course builder</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Integraciones</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>LevelSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>SkillSets</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Panel de habilidades</span>
+              <p> Descripción breve</p>
+            </div>
+            <div className="column">
+              <span>Speex</span>
+              <p> Descripción breve</p>
+            </div>
+           
+          </div>
+          <a href="#vermas" className="ver-mas-link">
+              Ver más <span>&#8594;</span>
+          </a>
+        </>
+      ),
+    },
+    {
+      id: 4,
       name: 'Coursera',
       description: (
         <>
@@ -61,7 +252,7 @@ const Header = () => {
       ),
     },
     {
-      id: 1,
+      id: 4,
       name: 'Speex',
       description: (
         <>
@@ -103,142 +294,31 @@ const Header = () => {
       ),
     },
     {
-      id: 2,
-      name: 'Negocios',
-      description: (
-        <>
-          <div className="columns-container">
-            <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
-            </div>
-           
-          </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
-        </>
-      ),
-    },
-    {
-      id: 2,
-      name: 'Universidades',
-      description: (
-        <>
-          <div className="columns-container">
-            <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
-            </div>
-           
-          </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
-        </>
-      ),
-    },
-    {
-      id: 2,
-      name: 'Gobierno',
-      description: (
-        <>
-          <div className="columns-container">
-            <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
-            </div>
-           
-          </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
-        </>
-      ),
-    },
-    {
-      id: 3,
+      id: 5,
       name: 'Nosotros',
       description: (
         <>
           <div className="columns-container">
+            <h4>[Idea fuerza]</h4>
             <p>
-              texto
+            Nos asociamos con las mejores plataformas de aprendizaje del mundo para poder 
+            llevarte el mejor y más actualizado contenido con el fin de desarrollar las 
+            habilidades estratégicas que necesitas para enfrentar el futuro del mundo laboral.
             </p>
           </div>
+          <a href="#vermas1" className="ver-mas-link">
+                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
+          </a>
         </>
       ),
     },
     {
-      id: 3,
-      name: 'Noticias',
-      description: (
-        <>
-          <div className="columns-container">
-            <p>
-              texto
-            </p>
-          </div>
-        </>
-      ),
-    },
-    {
-      id: 3,
+      id: 5,
       name: 'Contáctanos',
       description: (
         <>
           <div className="columns-container">
-            <p>
-              texto
-            </p>
+           
           </div>
         </>
       ),
@@ -281,6 +361,11 @@ const Header = () => {
     setIsMenuVisible(false);  // Ocultar el submenú al quitar el ratón
   };
 
+  // Función para alternar la visibilidad de la lista de países
+  const toggleCountriesList = () => {
+    setIsCountriesVisible(!isCountriesVisible);
+  };
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''} ${isMenuVisible ? 'visible' : ''}`}
     onMouseLeave={handleMouseLeave}
@@ -301,20 +386,50 @@ const Header = () => {
             <li 
                className={`nav-item ${activeMenuItem === 1 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(1)}
-            ><a href="#servicios">Productos</a>
+            ><a href="#servicios"><span>Para</span>Empresas</a>
+            </li>
+            <li 
+               className={`nav-item ${activeMenuItem === 2 ? 'active' : ''}`} 
+              onMouseEnter={() => handleMouseEnter(2)}
+            ><a href="#servicios"><span>Para</span>Universidades</a>
+            </li>
+            <li 
+               className={`nav-item ${activeMenuItem === 3 ? 'active' : ''}`} 
+              onMouseEnter={() => handleMouseEnter(3)}
+            ><a href="#servicios"><span>Para</span>Gobierno</a>
             </li>
             <li
-                className={`nav-item ${activeMenuItem === 2 ? 'active' : ''}`} 
-               onMouseEnter={() => handleMouseEnter(2)}
+                className={`nav-item ${activeMenuItem === 4 ? 'active' : ''}`} 
+               onMouseEnter={() => handleMouseEnter(4)}
             ><a href="#paises">Soluciones</a>
             </li>
             <li
-               className={`nav-item ${activeMenuItem === 3 ? 'active' : ''}`} 
-              onMouseEnter={() => handleMouseEnter(3)}
+               className={`nav-item ${activeMenuItem === 5 ? 'active' : ''}`} 
+              onMouseEnter={() => handleMouseEnter(5)}
             ><a href="#mas">Más</a></li>
           </ul>
         </nav>
       )}
+      {scrolled && (
+        <div  onClick={toggleCountriesList}>
+          <div className="pais-section">
+          <i className="fas fa-globe"></i> {/* Icono del planeta */}
+          <i className="fas fa-chevron-down"></i> {/* Icono de la flecha hacia abajo */}
+          </div>
+            {/* Solo mostramos la lista si isCountriesVisible es true */}
+      {isCountriesVisible && (
+        <ul className="countries-list">
+          <li>Argentina</li>
+          <li>Chile</li>
+          <li>Colombia</li>
+          <li>México</li>
+          <li>Perú</li>
+        </ul>
+      )}
+        </div>
+      )}
+
+    
 
       {/* Contenedor para las dos columnas */}
       <div className="container-menu">
