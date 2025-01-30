@@ -8,6 +8,8 @@ const Header = () => {
   const [activeService, setActiveService] = useState(null); // Para gestionar el servicio activo
   const [activeMenuItem, setActiveMenuItem] = useState(null);
   const [isCountriesVisible, setIsCountriesVisible] = useState(false);// Estado para manejar la visibilidad de la lista de países
+  const [selectedCountry, setSelectedCountry] = useState(""); // Estado para el país seleccionado
+
 
   // Datos de los servicios
   
@@ -299,12 +301,14 @@ const Header = () => {
       description: (
         <>
           <div className="columns-container">
+            <div className="column">
             <h4>[Idea fuerza]</h4>
             <p>
             Nos asociamos con las mejores plataformas de aprendizaje del mundo para poder 
             llevarte el mejor y más actualizado contenido con el fin de desarrollar las 
             habilidades estratégicas que necesitas para enfrentar el futuro del mundo laboral.
             </p>
+            </div>
           </div>
           <a href="#vermas1" className="ver-mas-link">
                 Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
@@ -366,6 +370,12 @@ const Header = () => {
     setIsCountriesVisible(!isCountriesVisible);
   };
 
+  // Función para manejar la selección de un país
+  const handleCountrySelect = (country, countryCode) => {
+    setSelectedCountry(countryCode);  // Cambiar el estado con el código del país (ej. "CL")
+    setIsCountriesVisible(false); // Ocultar la lista después de la selección
+  };
+
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''} ${isMenuVisible ? 'visible' : ''}`}
     onMouseLeave={handleMouseLeave}
@@ -411,21 +421,24 @@ const Header = () => {
         </nav>
       )}
       {scrolled && (
-        <div  onClick={toggleCountriesList}>
-          <div className="pais-section">
+        <div onClick={toggleCountriesList}>
+        <div className={`pais-section ${isCountriesVisible ? 'active' : ''}`}>
+          <span>{selectedCountry}</span> {/* Muestra el código del país o un texto predeterminado */}
           <i className="fas fa-globe"></i> {/* Icono del planeta */}
           <i className="fas fa-chevron-down"></i> {/* Icono de la flecha hacia abajo */}
-          </div>
-            {/* Solo mostramos la lista si isCountriesVisible es true */}
-      {isCountriesVisible && (
-        <ul className="countries-list">
-          <li>Argentina</li>
-          <li>Chile</li>
-          <li>Colombia</li>
-          <li>México</li>
-          <li>Perú</li>
-        </ul>
-      )}
+        </div>
+  
+        {/* Solo mostramos la lista si isCountriesVisible es true */}
+        {isCountriesVisible && (
+          <ul className="countries-list">
+            <li>Países</li>
+            <li onClick={() => handleCountrySelect("Argentina", "AR")}>Argentina</li>
+            <li onClick={() => handleCountrySelect("Chile", "CL")}>Chile</li>
+            <li onClick={() => handleCountrySelect("Colombia", "CO")}>Colombia</li>
+            <li onClick={() => handleCountrySelect("México", "MX")}>México</li>
+            <li onClick={() => handleCountrySelect("Perú", "PE")}>Perú</li>
+          </ul>
+        )}
         </div>
       )}
 

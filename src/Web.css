@@ -1,0 +1,3 @@
+.header.visible ~ .home > .home-image::after{
+    position: absolute;
+}
