@@ -1,3 +1,6 @@
-.header.visible ~ .home > .home-image::after{
+.header.visible ~ .home::after{
     position: absolute;
+}
+.header.scrolled ~ .home{
+    padding-top: 164px;
 }
