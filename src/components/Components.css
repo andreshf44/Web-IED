@@ -1,6 +1,7 @@
 /* src/components/Header.css */
 
 .header {
+  height: 3vh;
   background-color: #e0efea;  
   padding: 10px 0;             /* Espaciado superior e inferior */
   text-align: center;          /* Centra el contenido dentro del header */
@@ -25,6 +26,7 @@
 
 .header.scrolled{
   width: 95vw;
+  height: 10vh;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -53,7 +55,7 @@
           color: #333;                
           font-size: 18px;             
           font-weight: bold;           
-          transition: color 0.3s;
+          transition: color 0.5s;
           span{
             font-size: 12px;
           }

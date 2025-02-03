@@ -21,7 +21,12 @@ const Home = () => {
   const slides = [
     "/ImagenHome.jpg",  // Asegúrate de tener estas imágenes en la carpeta pública o en una ruta correcta
     "/imagenSlide2.png",
-    "/ImagenHome.jpg"
+    "/imagenSlide3.png"
+  ];
+  const slideTexts = [
+    "Líder en potenciar y desarrollar talento y competencias utilizando <span>IA</span>",
+    "Aliados con las plataformas de <span>aprendizaje</span> más efectivas a nivel global",
+    "Las mejores soluciones de <span>upskilling</span> y <span>reskilling</span> para tus colaboradores",
   ];
 
   // Estado para el índice del slide actual
@@ -67,9 +72,7 @@ const Home = () => {
       {scrolled && (
         <div className="carousel">
           <div className='section1'>
-            <h3>
-              Líder en potenciar y desarrollar talento y competencias utilizando <span>IA</span>
-            </h3>
+            <h3 dangerouslySetInnerHTML={{ __html: slideTexts[currentSlide] }} />
             <button
               type="button"
               class="btn btnSlide"
@@ -93,6 +96,25 @@ const Home = () => {
         </div>
       )}
       
+      {scrolled && (
+         <div className="home-data">
+         <i class="fa fa-chevron-left"></i>
+         <div className="container-data data-uno">
+           <p><span>+</span>882%</p>
+           <p>de aumento en la inscripción de cursos relacionados a IA</p>
+         </div>
+         <div className="container-data data-dos">
+           <p><span className="positive">+</span>5,4k</p>
+           <p>de cursos y especializaciones disponibles</p>
+         </div>
+         <div className="container-data data-tres">
+           <p><span className="negative">-</span>40%</p>
+           <p>recursos de capacitación utilizados</p>
+         </div>
+         <i class="fa fa-chevron-right"></i>
+       </div>
+      )}
+     
       
     </div>
   );
