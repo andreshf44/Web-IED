@@ -66,7 +66,9 @@ const Home = () => {
     <div className={`home ${scrolled ? 'scrolled' : ''}`}>
 
       <div className="home-image">
-        
+        <div className='text-home'>
+          <p>Somos Coursera y Speexx en LATAM</p>
+        </div>
       </div>
 
       {scrolled && (

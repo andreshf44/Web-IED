@@ -1,8 +1,8 @@
 /* src/components/Header.css */
 
 .header {
-  height: 3vh;
-  background-color: #e0efea;  
+  height: auto;
+  background-color: #fff;  
   padding: 10px 0;             /* Espaciado superior e inferior */
   text-align: center;          /* Centra el contenido dentro del header */
   position: fixed;             /* Fija el header en la parte superior */
@@ -82,6 +82,16 @@
     cursor: pointer;
     width: 70px;
     justify-content: flex-end;
+    .whatsapp-floating-button{
+      position:inherit;
+      a{
+        box-shadow: none;
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
     span{
       font-weight: 600;
     };

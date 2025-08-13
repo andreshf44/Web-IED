@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import WhatsappFloatingButton from './ContactFloat';
 import './Components.css';  // Importamos los estilos de Header
 
 const Header = () => {
@@ -384,7 +385,7 @@ const Header = () => {
       <div className="logo-container">
         {/* Cambiamos la imagen según el estado del scroll */}
         <img 
-          src={scrolled ? "/logo-scroll.png" : "/logo-first.png"} 
+          src={scrolled ? "/logo-scroll.png" : "/logo-scroll.png"} 
           alt="Logo" 
           className="logo" 
         />
@@ -423,6 +424,7 @@ const Header = () => {
       {scrolled && (
         <div onClick={toggleCountriesList}>
         <div className={`pais-section ${isCountriesVisible ? 'active' : ''}`}>
+          <WhatsappFloatingButton />
           <span>{selectedCountry}</span> {/* Muestra el código del país o un texto predeterminado */}
           <i className="fas fa-globe"></i> {/* Icono del planeta */}
           <i className="fas fa-chevron-down"></i> {/* Icono de la flecha hacia abajo */}
