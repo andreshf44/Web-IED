@@ -22,7 +22,7 @@
   width: 100%;
   height: 100vh;  
   position: relative;  
-  padding-top: 1px; 
+  padding-top: 10px; 
   .home-image {
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ z-index: 1;  /* Asegura que esté encima de la imagen */
 }
 
 .scrolled{
-  padding-top: 222px;
+  padding-top: 155px;
   height: auto;
   .home-image{
     opacity: 0;
@@ -129,7 +129,7 @@ z-index: 1;  /* Asegura que esté encima de la imagen */
       background-image:none;
       .carousel-image {
         width: 800px;
-        height: auto;
+        height: 500px;
         object-fit: cover;
         transition: opacity 1s ease-in-out;; 
       }

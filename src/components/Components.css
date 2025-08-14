@@ -52,12 +52,19 @@
         a{
           display: grid;
           text-decoration: none;       
-          color: #333;                
-          font-size: 18px;             
-          font-weight: bold;           
+          color: #101E3F;                            
+          font-weight: 400;           
           transition: color 0.5s;
           span{
             font-size: 12px;
+          }
+          span.name-item{
+            font-size: 18px;
+            font-weight: 600;
+            svg{
+              margin-left: 4px;
+              vertical-align: middle;
+            }
           }
         }
         a:hover {
@@ -252,16 +259,85 @@
   bottom: 20px;
   right: 20px;
   z-index: 1000; /* Asegura que el botón esté sobre otros elementos */
+  .text-contacto{
+    display: none;
+  }
+  a.container-icon-header:hover {
+    display: flex;
+    gap: 5px;
+    box-shadow: none;
+    background: #101e3f;
+    width: auto;
+    padding-right: 12px;
+    color: #fff;
+    height: 26px;
+    border-radius: 16px;
+    /* align-items: center; */
+    text-decoration: none;
+    .text-contacto{
+      display: block;
+    }
+  }
+
+  .form-contacto{
+    background: #fff;
+    border: 2px solid #101E3F;
+    padding: 8px 0 20px;
+
+    .top-section{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #101E3F;
+      padding: 0 15px 8px;
+      color: #101E3F;
+      font-weight: bolder;
+      i{
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
+    .down-section{
+      padding: 0 15px;
+      color:#101E3F;
+      .data-section{
+        display: flex;
+        flex-direction: column;
+        text-align: start;
+        font-weight: 600;
+        padding: 0px 10px;
+        input{
+          padding: 9px 0px;
+          margin: 3px 0 15px;
+          border-radius: 16px;
+          border: none;
+          background: #F2F2F2;
+        }
+      }
+      button{
+        border: none;
+        padding: 7px 30px;
+        border-radius: 16px;
+        color: #ffff;
+        font-weight: 600;
+        background: #101E3F;
+      }
+    }
+    
+  }
+ 
 }
+
+
 
 .whatsapp-floating-button a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
+  width: auto;
   height: 60px;
   border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 .whatsapp-floating-button a img {
@@ -269,11 +345,16 @@
   height: 45px;
 }
 .whatsapp-floating-button a img:hover {
-  width: 60px;
-  height: 60px;
+  width: 87px;
+  height: 80px;
 }
 
-
+.container-wpp{
+  .body-icon{
+    width: 67px;
+    height: 60px;
+  }
+}
 
 
 

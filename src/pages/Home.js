@@ -20,8 +20,8 @@ const Home = () => {
   // Array con las rutas de las imágenes para el carrusel
   const slides = [
     "/ImagenHome.jpg",  // Asegúrate de tener estas imágenes en la carpeta pública o en una ruta correcta
-    "/imagenSlide2.png",
-    "/imagenSlide3.png"
+    "/imagenSlide2.jpg",
+    "/imagenSlide3.jpg"
   ];
   const slideTexts = [
     "Líder en potenciar y desarrollar talento y competencias utilizando <span>IA</span>",

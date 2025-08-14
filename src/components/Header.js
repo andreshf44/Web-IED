@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import WhatsappFloatingButton from './ContactFloat';
 import './Components.css';  // Importamos los estilos de Header
+import { ReactComponent as ChevronDown } from '../assets/chevron-down.svg';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
@@ -397,34 +397,68 @@ const Header = () => {
             <li 
                className={`nav-item ${activeMenuItem === 1 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(1)}
-            ><a href="#servicios"><span>Para</span>Empresas</a>
+            ><a href="#servicios">
+                <span>Para</span>
+                <span className='name-item'>
+                  Empresas
+                  <ChevronDown/>
+                </span>
+              </a>
             </li>
             <li 
                className={`nav-item ${activeMenuItem === 2 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(2)}
-            ><a href="#servicios"><span>Para</span>Universidades</a>
+            ><a href="#servicios">
+                <span>Para</span>
+                <span className='name-item'>
+                  Universidades
+                  <ChevronDown/>
+                </span>
+              </a>
             </li>
             <li 
                className={`nav-item ${activeMenuItem === 3 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(3)}
-            ><a href="#servicios"><span>Para</span>Gobierno</a>
+            ><a href="#servicios">
+                <span>Para</span>
+                <span className='name-item'>
+                  Gobierno
+                  <ChevronDown/>
+                </span>
+              </a>
             </li>
             <li
                 className={`nav-item ${activeMenuItem === 4 ? 'active' : ''}`} 
                onMouseEnter={() => handleMouseEnter(4)}
-            ><a href="#paises">Soluciones</a>
+            ><a href="#paises">
+                <span className='name-item'>
+                  Soluciones
+                  <ChevronDown/>
+                </span>
+              </a>
             </li>
             <li
                className={`nav-item ${activeMenuItem === 5 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(5)}
-            ><a href="#mas">Más</a></li>
+            ><a href="#mas">
+               <span className='name-item'>
+                  Más
+                  <ChevronDown/>
+                </span>
+              </a>
+            </li>
           </ul>
         </nav>
       )}
       {scrolled && (
         <div onClick={toggleCountriesList}>
         <div className={`pais-section ${isCountriesVisible ? 'active' : ''}`}>
-          <WhatsappFloatingButton />
+          <div className="whatsapp-floating-button">
+            <a className='container-icon-header'>
+              <img className='header-icon' src="/whatsapp-icon.png" alt="WhatsApp" />
+              <span className='text-contacto'>Contáctanos</span>
+            </a>
+          </div>
           <span>{selectedCountry}</span> {/* Muestra el código del país o un texto predeterminado */}
           <i className="fas fa-globe"></i> {/* Icono del planeta */}
           <i className="fas fa-chevron-down"></i> {/* Icono de la flecha hacia abajo */}

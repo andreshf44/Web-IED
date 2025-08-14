@@ -9,7 +9,10 @@ function App() {
     <div className="App">
       <Header />  
       <Home />
-      <WhatsappFloat />
+      <div className='container-wpp'>
+        <WhatsappFloat />
+      </div>
+      
     </div>
   );
 }
