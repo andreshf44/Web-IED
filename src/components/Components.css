@@ -145,7 +145,6 @@
   display: flex; 
   visibility: hidden;
   opacity: 0;
-
   position: fixed;
   border-top: 1px solid #dddada80;
   height: auto;
@@ -165,6 +164,7 @@
       li {
         margin-bottom: 10px;
         height: 45px;
+        height: 20px;
         padding-top: 24px;
         a {
           text-decoration: none;
@@ -183,6 +183,7 @@
   .content-option {
     width: 65%;
     padding: 10px;
+    color: #101E3F;
     h3 {
       text-align: left;
       font-size: 25px;
@@ -209,6 +210,40 @@
             list-style-type: disc;
           }
         }
+        .column.beneficios.universidades, .column.beneficios.gobierno{
+          h4{
+            font-size: 20px;
+          }
+          p{
+            max-width: 80%;
+          }
+          ul {
+            padding-left: 18px;
+          }
+        }
+        .column.coursera{
+          li{
+            margin-bottom: 7px;
+            border-bottom: 1px solid #101E3F;
+          }
+          a.ver-mas-link{
+            text-align: start;
+          }
+        }
+        .column.speex{
+          width: 230px;
+          p{
+            width:82%
+          }
+        }
+        .column.nosotros{
+          h4{
+            font-size: 20px;
+          }
+          p{
+            width: 70%;
+          }
+        }
         h4 {
           margin-top: 0;
           text-align: left;
@@ -228,9 +263,31 @@
           border-bottom: 1px solid black;
         }
       }
+      .columns-container.soluciones-empresa, 
+      .columns-container.soluciones-universidades, 
+      .columns-container.soluciones-gobierno{
+        flex-wrap: wrap;
+        justify-content: inherit;
+        .column{
+          min-width: 300px;
+          width: 30%;
+          p{
+            padding-right: 90px;
+          }
+        }
+      }
       a{
         display: flex;
         justify-content: flex-end;
+      }
+      a.ver-mas-link {
+        text-align: end;
+        color: #101E3F;
+        font-weight: 600;
+        text-decoration: none;
+        span{
+          font-size: 18px;
+        }
       }
     }
   }

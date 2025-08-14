@@ -46,30 +46,30 @@ const Header = () => {
       name: 'Soluciones',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container soluciones-empresa">
             <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
+              <span>Generative AI Academy</span>
+              <p>Desarrolle habilidades de IA en toda su organización</p>
             </div>
             <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
+              <span>Academia de Dato</span>
+              <p>Permite a tus empleados tomar decisiones e innovar</p>
             </div>
             <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
+              <span>Academia de Tecnología</span>
+              <p>Impulse la transformación tecnológica de su empresa</p>
             </div>
             <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
+              <span>Academia de Marketing</span>
+              <p>Aprende las más recientes skills de marketing digital</p>
             </div>
             <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
+              <span>Career Academy</span>
+              <p>Preparación para puestos de gran demanda</p>
             </div>
             <div className="column">
               <span>Speex</span>
-              <p> Descripción breve</p>
+              <p>La solución más efectiva para aprender inglés</p>
             </div>
            
           </div>
@@ -86,7 +86,7 @@ const Header = () => {
         <>
           <div className="columns-container">
             {/* Columna 1 */}
-            <div className="column beneficios">
+            <div className="column beneficios universidades">
               <h4>Fortalece la inserción laboral para atraer a un mayor número de estudiantes</h4>
               <p>Capacita a los estudiantes con las habilidades más demandadas y prepáralos para 
                 alcanzar el éxito en el mundo laboral.</p>
@@ -109,30 +109,30 @@ const Header = () => {
       name: 'Soluciones',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container soluciones-universidades">
             <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
+              <span>Generative AI Courses</span>
+              <p>Desarrolle habilidades de IA en toda su institución</p>
             </div>
             <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
+              <span>Course Builder</span>
+              <p> Genere y escale contenido personalizado</p>
             </div>
             <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
+              <span>Integridad Académica</span>
+              <p>Eleve la integridad en sus experiencias de aprendizaje</p>
             </div>
             <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
+              <span>Certificados profesionales</span>
+              <p>Ofrece microcredenciales de empresas líderes</p>
             </div>
             <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
+              <span>Career Academy</span>
+              <p>Prepare estudiantes para puestos de gran demanda</p>
             </div>
             <div className="column">
               <span>Speex</span>
-              <p> Descripción breve</p>
+              <p>La solución más efectiva para aprender inglés</p>
             </div>
            
           </div>
@@ -149,7 +149,7 @@ const Header = () => {
         <>
           <div className="columns-container">
             {/* Columna 1 */}
-            <div className="column beneficios">
+            <div className="column beneficios gobierno">
               <h4>Fortalece la inserción laboral para atraer a un mayor número de estudiantes</h4>
               <p>Capacita a los estudiantes con las habilidades más demandadas y prepáralos para 
                 alcanzar el éxito en el mundo laboral.</p>
@@ -172,32 +172,27 @@ const Header = () => {
       name: 'Soluciones',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container soluciones-gobierno">
             <div className="column">
-              <span>Course builder</span>
-              <p> Descripción breve</p>
+              <span>Career Academy</span>
+              <p>Prepare usuarios para puestos de gran demanda</p>
             </div>
             <div className="column">
-              <span>Integraciones</span>
-              <p> Descripción breve</p>
+              <span>Academia de Datos</span>
+              <p>Permite a tus empleados tomar decisiones e innovar</p>
             </div>
             <div className="column">
-              <span>LevelSets</span>
-              <p> Descripción breve</p>
+              <span>Academia de Tecnología</span>
+              <p>Impulse la transformación digital</p>
             </div>
             <div className="column">
-              <span>SkillSets</span>
-              <p> Descripción breve</p>
-            </div>
-            <div className="column">
-              <span>Panel de habilidades</span>
-              <p> Descripción breve</p>
+              <span>Academia de liderazgo</span>
+              <p>Impulsa tu fuerza de trabajo para liderar mejor</p>
             </div>
             <div className="column">
               <span>Speex</span>
-              <p> Descripción breve</p>
+              <p>La solución más efectiva para aprender inglés</p>
             </div>
-           
           </div>
           <a href="#vermas" className="ver-mas-link">
               Ver más <span>&#8594;</span>
@@ -212,39 +207,39 @@ const Header = () => {
         <>
           <div className="columns-container">
             {/* Columna 1 */}
-            <div className="column">
-              <h4>Para Empresas</h4>
+            <div className="column coursera">
+              <h4>Para empresas</h4>
               <ul>
                 <li>Generative AI Academy</li>
-                <li>Academia de Marketing</li>
-                <li>Academia de Finanzas</li>
-                <li>Academia de Datos</li>
-                <li>Academia de Tecnoloía</li>
+                <li>Academia de marketing</li>
+                <li>Academia de finanzas</li>
+                <li>Academia de datos</li>
+                <li>Academia de tecnoloía</li>
               </ul>
               <a href="#vermas1" className="ver-mas-link">
                 Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
               </a>
             </div>
             {/* Columna 2 */}
-            <div className="column">
-              <h4>Para Universidades</h4>
+            <div className="column coursera">
+              <h4>Para universidades</h4>
               <ul>
                 <li>Generative AI Coursera</li>
-                <li>Academic Integrity</li>
-                <li>Certificados Profesionales</li>
+                <li>Academic integrity</li>
+                <li>Certificados profesionales</li>
               </ul>
               <a href="#vermas2" className="ver-mas-link">
                 Ver más <span>&#8594;</span>
               </a>
             </div>
             {/* Columna 3 */}
-            <div className="column">
-              <h4>Para Gobierno</h4>
+            <div className="column coursera">
+              <h4>Para gobierno</h4>
               <ul>
                 <li>Career Academy</li>
-                <li>Academia de Datos</li>
-                <li>Academia de Tecnología</li>
-                <li>Academia de Liderazgos</li>
+                <li>Academia de datos</li>
+                <li>Academia de tecnología</li>
+                <li>Academia de liderazgos</li>
               </ul>
               <a href="#vermas3" className="ver-mas-link">
                 Ver más <span>&#8594;</span>
@@ -261,37 +256,28 @@ const Header = () => {
         <>
           <div className="columns-container">
             {/* Columna 1 */}
-            <div className="column">
+            <div className="column speex">
               <h4>Core</h4>
-              <p>Descripción breve</p>
-              <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-              </a>
+              <p>El plan más esencial y básico para iniciar el aprendizaje de idiomas</p>
             </div>
             {/* Columna 2 */}
-            <div className="column">
+            <div className="column speex">
               <h4>Smart</h4>
-              <p>Descripción breve</p>
-              <a href="#vermas2" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </a>
+              <p>Fortalece tus habilidades con sesiones grupales en vivo</p>
             </div>
             {/* Columna 3 */}
-            <div className="column">
+            <div className="column speex">
               <h4>Expert</h4>
-              <p>Descripción breve</p>
-              <a href="#vermas3" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </a>
+              <p>Participa de laboratorios y recibe asesoría de un coach especializado</p>
             </div>
             {/* Columna 4 */}
-            <div className="column">
+            <div className="column speex">
               <h4>Expert Pro</h4>
-              <p>Descripción breve</p>
-              <a href="#vermas3" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </a>
+              <p>Participa de sesiones en vivo 1:1 y recibe asesoría y soporte constante</p>
             </div>
+            <a href="#vermas" className="ver-mas-link">
+                Ver más <span>&#8594;</span>
+            </a>
           </div>
         </>
       ),
@@ -302,8 +288,8 @@ const Header = () => {
       description: (
         <>
           <div className="columns-container">
-            <div className="column">
-            <h4>[Idea fuerza]</h4>
+            <div className="column nosotros">
+            <h4>Líderes en potenciar y desarrollar talento y competencias utilizando IA</h4>
             <p>
             Nos asociamos con las mejores plataformas de aprendizaje del mundo para poder 
             llevarte el mejor y más actualizado contenido con el fin de desarrollar las 
@@ -314,6 +300,17 @@ const Header = () => {
           <a href="#vermas1" className="ver-mas-link">
                 Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
           </a>
+        </>
+      ),
+    },
+    {
+      id: 5,
+      name: 'Noticias',
+      description: (
+        <>
+          <div className="columns-container">
+           
+          </div>
         </>
       ),
     },
