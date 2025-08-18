@@ -254,7 +254,7 @@ const Header = () => {
       name: 'Speex',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container content-speex">
             {/* Columna 1 */}
             <div className="column speex">
               <h4>Core</h4>
@@ -275,10 +275,11 @@ const Header = () => {
               <h4>Expert Pro</h4>
               <p>Participa de sesiones en vivo 1:1 y recibe asesoría y soporte constante</p>
             </div>
-            <a href="#vermas" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-            </a>
+            
           </div>
+          <a href="#vermas" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </a>
         </>
       ),
     },
@@ -316,15 +317,54 @@ const Header = () => {
     },
     {
       id: 5,
-      name: 'Contáctanos',
+      name: 'Blog',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container content-blog">
            
           </div>
         </>
       ),
     },
+    {
+      id: 5,
+      name: 'Contáctanos',
+      description: (
+        <>
+          <div className="columns-container content-contactanos">
+            <p className='subtitle'>Comunícate con nosotros a través de nuestro correo electrónico:</p>
+            <div className='top-section'>
+              <div className='pais'>
+                <span><img src="https://flagcdn.com/ar.svg" width="24"/>Argentina</span>
+                <p>argentina@educaciondigitalsa.com</p>
+              </div>
+              <div className='pais'>
+                <span><img src="https://flagcdn.com/co.svg" width="24"/> Colombia</span>
+                <p>colombia@educaciondigitalsa.com</p>
+              </div>
+              <div className='pais'>
+                <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
+                <p>peru@educaciondigitalsa.com</p>
+              </div>
+            </div>
+            <div className='down-section'>
+              <div className='pais chile'>
+                <span><img src="https://flagcdn.com/cl.svg" width="24" alt="Bandera de Chile" /> Chile</span>
+                <p>chile@educaciondigitalsa.com</p>
+              </div>
+              <div className='pais'>
+                <span><img src="https://flagcdn.com/mx.svg" width="24" alt="Bandera de México" /> México</span>
+                <p>mexico@educaciondigitalsa.com</p>
+              </div>
+              <div className='pais'>
+                <span className='latam'><img src="https://img.icons8.com/ios-filled/50/globe--v1.png" width="21" alt="LATAM icon" /> LATAM</span>
+                <p>latam@i-edglobal.com</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    }
   ];
 
   // Función que se llama cada vez que el usuario hace scroll
@@ -375,8 +415,8 @@ const Header = () => {
   };
 
   return (
-    <header className={`header ${scrolled ? 'scrolled' : ''} ${isMenuVisible ? 'visible' : ''}`}
-    onMouseLeave={handleMouseLeave}
+    <header className={`header ${scrolled ? 'scrolled' : ''} ${isMenuVisible ? 'visible' : ''} ${selectedCountry ? selectedCountry.toLowerCase() : ''}`}
+      onMouseLeave={handleMouseLeave}
     >
 
       <div className="logo-container">
@@ -485,8 +525,8 @@ const Header = () => {
               <li className={`${service.id} ${activeMenuItem === service.id ? 'active' : ''}`} 
               key={service.id}>
                 <a 
-                 onClick={() => handleServiceClick(service)}
-                 className={activeService === service.name ? 'active' : ''} // Agrega la clase 'active'
+                  onClick={() => handleServiceClick(service)}
+                  className={`${activeService === service.name ? 'active' : ''} ${service.name === 'Blog' ? 'blog-link' : ''}`}
                 >
                   {service.name}
                 </a>
