@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Components.css';  // Importamos los estilos de Header
 import { ReactComponent as ChevronDown } from '../assets/chevron-down.svg';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
@@ -10,7 +11,7 @@ const Header = () => {
   const [activeMenuItem, setActiveMenuItem] = useState(null);
   const [isCountriesVisible, setIsCountriesVisible] = useState(false);// Estado para manejar la visibilidad de la lista de países
   const [selectedCountry, setSelectedCountry] = useState(""); // Estado para el país seleccionado
-
+  const location = useLocation();
 
   // Datos de los servicios
   
@@ -33,9 +34,9 @@ const Header = () => {
                 <li>Conserva los talentos</li>
                 <li>Vuelve a capacitar a los talentos</li>
               </ul>
-              <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-              </a>
+              <Link to="/enterprise" className="ver-mas-link">
+                Ver más <span>&#8594;</span>
+              </Link>
             </div>
           </div>
         </>
@@ -73,9 +74,9 @@ const Header = () => {
             </div>
            
           </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
+          <Link to="/enterprise" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -367,24 +368,25 @@ const Header = () => {
     }
   ];
 
-  // Función que se llama cada vez que el usuario hace scroll
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setScrolled(true);  // Si se hizo scroll hacia abajo más de 50px, mostramos el logo scroll
-    } else {
-      setScrolled(false); // Si estamos en la parte superior, mostramos el logo inicial
-    }
-  };
 
   // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    if (location.pathname === "/enterprise") {
+      setScrolled(true);
+    } else {
+      // Función que se llama cada vez que el usuario hace scroll
+      const handleScroll = () => {
+        if (window.scrollY > 0) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      };
 
-    // Limpiamos el event listener cuando el componente se desmonta
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [location.pathname]);
 
   // Función para actualizar el servicio seleccionado
   const handleServiceClick = (service) => {

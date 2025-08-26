@@ -438,8 +438,6 @@ header.scrolled.visible.cl .container-menu{
  
 }
 
-
-
 .whatsapp-floating-button a {
   display: flex;
   justify-content: center;
@@ -465,6 +463,218 @@ header.scrolled.visible.cl .container-menu{
     height: 60px;
   }
 }
+
+
+/*src/components/Services/Enterprise.js*/
+
+.enterprise-hero {
+  background: url('../../public/enterprise.jpg') center/cover no-repeat;
+  display: flex;
+  height: 600px;
+  align-items: flex-end;
+}
+
+.hero-overlay {
+  background: #101e3f8a;
+  padding: 25px;
+  margin: 95px;
+  border-radius: 0;
+}
+
+.hero-overlay h1 {
+  color: #fff;
+  font-size: 48px;
+  text-align: start;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.enterprise-benefits, .enterprise-solutions {
+  text-align: start;
+  padding: 12px 126px;
+  color: #101E3F;
+  h2{
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+}
+
+.benefits-intro {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.benefits-description{
+  width: 70%;
+}
+
+.benefits-list {
+  margin-top: 1rem;
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.fixed-section{
+  position: sticky;
+  top: 80px;
+  background: #fff;
+  .tabs{
+    border-bottom: 1px solid #101E3F;
+    height: 50px;
+    display: flex;  
+    width: 60%;
+    gap: 35px;
+    margin-top: 34px;
+    .tab-btn{
+      width: 100px;
+      height: 50px;
+      background: none;
+      border: none;
+      color: #101E3F;
+      cursor: pointer;
+      text-align: start;
+    }
+    .tab-btn.active{
+      font-weight: 600;
+      border-bottom: 4px solid #52A056;
+    }
+  }
+}
+
+.solutions-content{
+  margin-top: 50px;
+  .tab-content{
+    margin-bottom: 80px;
+    h3{
+      font-size: 24px;
+      width: 75%;
+    }
+  }
+  
+  .first-content{
+    display: flex;
+    align-items: center;
+    margin-bottom: 95px;
+    .text-content{
+      h3{
+        font-size: 24px;
+      }
+      p{
+        width: 85%;
+        text-align: justify;
+      }
+    }
+  }
+  .second-content, .third-content{
+    display: flex;
+    gap: 70px;
+    .img-content{
+      img{
+        width: 450px;
+      }
+    }
+    .text-content{
+      h3{
+        font-size: 24px;
+      }
+      p{
+        text-align: justify;
+      }
+    }
+  }
+  .speex-second{
+    justify-content: space-around;
+  }
+  .third-content{
+    margin-top: 50px;
+    height: 250px;
+    img{     
+      height: 100%;    
+      object-fit: cover;  
+      object-position: 50% 80%;
+    }
+  }
+}
+
+.enterprise-contact{
+  margin: 80px 0 40px;
+  button{
+    border-radius: 24px;
+    font-size: 17px;
+    margin-left: 52px;
+    height: 42px;
+    padding: 0 30px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: #111f3f;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.datos-container, .tech-container{
+  .tab-content{
+    margin-bottom: 60px;
+    h3.subtitle-career{
+      width: 85%;
+    }
+    p{
+      width: 80%;
+    }
+  }
+  .first-content {
+    border: 1px solid #52A056;
+    width: 505px;
+    gap: 10px;
+    padding: 7px 15px;
+    margin: 0 auto 95px;
+    h3{
+      font-size: 40px;
+      margin: 0;
+    }
+    p{
+      font-weight: 600;
+    }
+  }
+  .second-content{
+    height: 270px;
+    img{     
+      height: 100%;    
+      object-fit: cover;  
+      object-position: 50% 62%;
+    }
+  }
+}
+
+.tech-container{
+  .first-content {
+    width: fit-content;
+    padding: 0px 15px;
+    .box-data{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 505px;
+      p {
+        padding: 5px 8px 5px 0px;
+      }
+      span{
+        color: #52A056;
+        margin-right: 7px;
+      }
+    }
+    .first-box{
+      border-right: 1px solid #52A056;
+    }
+  }
+}
+
+
 
 
 

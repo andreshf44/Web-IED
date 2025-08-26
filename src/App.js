@@ -1,20 +1,31 @@
-import Header from './components/Header';  // Importamos el Header
-import Home from './pages/Home';  // Importamos Home 
-import WhatsappFloat from './components/ContactFloat'; //Importartamos Whatsapp flotante
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Header from './components/Header';
+import Home from './pages/Home';
+import Enterprise from './components/Services/Enterprise';
+import WhatsappFloat from './components/ContactFloat';
+
 import './App.css';
 import './Web.css';
 
 function App() {
   return (
-    <div className="App">
-      <Header />  
-      <Home />
-      <div className='container-wpp'>
-        <WhatsappFloat />
+    <Router>
+      <div className="App">
+        <Header />
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/enterprise" element={<Enterprise />} />
+        </Routes>
+
+        <div className='container-wpp'>
+          <WhatsappFloat />
+        </div>
       </div>
-      
-    </div>
+    </Router>
   );
 }
 
 export default App;
+
