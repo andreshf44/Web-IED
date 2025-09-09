@@ -97,9 +97,9 @@ const Header = () => {
                 <li>Mejora las experiencias de aprendizajes</li>
                 <li>Contenido de nivel mundial</li>
               </ul>
-              <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-              </a>
+              <Link to="/university" className="ver-mas-link">
+                Ver más <span>&#8594;</span>
+              </Link>
             </div>
           </div>
         </>
@@ -137,9 +137,9 @@ const Header = () => {
             </div>
            
           </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
+          <Link to="/university" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -371,7 +371,7 @@ const Header = () => {
 
   // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
   useEffect(() => {
-    if (location.pathname === "/enterprise") {
+    if (location.pathname === "/enterprise" || location.pathname === "/university") {
       setScrolled(true);
     } else {
       // Función que se llama cada vez que el usuario hace scroll

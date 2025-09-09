@@ -650,7 +650,7 @@ header.scrolled.visible.cl .container-menu{
   }
 }
 
-.tech-container{
+.tech-container, .datos-container.university{
   .first-content {
     width: fit-content;
     padding: 0px 15px;
@@ -672,6 +672,12 @@ header.scrolled.visible.cl .container-menu{
       border-right: 1px solid #52A056;
     }
   }
+}
+
+/*src/components/Services/University.js*/
+
+.enterprise-hero.university {
+  background: url('../../public/university.jpg') center/cover no-repeat;
 }
 
 
