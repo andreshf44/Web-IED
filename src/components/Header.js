@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Components.css';  // Importamos los estilos de Header
 import { ReactComponent as ChevronDown } from '../assets/chevron-down.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
@@ -12,6 +13,7 @@ const Header = () => {
   const [isCountriesVisible, setIsCountriesVisible] = useState(false);// Estado para manejar la visibilidad de la lista de países
   const [selectedCountry, setSelectedCountry] = useState(""); // Estado para el país seleccionado
   const location = useLocation();
+  const navigate = useNavigate(); //noticias
 
   // Datos de los servicios
   
@@ -361,7 +363,7 @@ const Header = () => {
                 <span><img src="https://flagcdn.com/co.svg" width="24"/> Colombia</span>
                 <p>colombia@educaciondigitalsa.com</p>
               </div>
-              <div className='pais'>
+              <div className='pais peru'>
                 <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
                 <p>peru@educaciondigitalsa.com</p>
               </div>
@@ -389,7 +391,15 @@ const Header = () => {
 
   // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
   useEffect(() => {
-    if (location.pathname === "/enterprise" || location.pathname === "/university" || location.pathname === "/goberment" || location.pathname === "/coursera" || location.pathname === "/speex" || location.pathname === "/sence" || location.pathname === "/nosotros") {
+    if (location.pathname === "/enterprise" || 
+        location.pathname === "/university" || 
+        location.pathname === "/goberment" || 
+        location.pathname === "/coursera" || 
+        location.pathname === "/speex" || 
+        location.pathname === "/sence" || 
+        location.pathname === "/nosotros" || 
+        location.pathname === "/notice" || 
+        location.pathname.startsWith("/noticia/")) {
       setScrolled(true);
     } else {
       // Función que se llama cada vez que el usuario hace scroll
@@ -410,6 +420,15 @@ const Header = () => {
   const handleServiceClick = (service) => {
     setSelectedService(service);  // Actualiza el servicio seleccionado
     setActiveService(service.name); // Marca el servicio como activo
+  };
+  
+  //Funcion para el manejo de noticias en menu
+  const handleServiceClickWithRedirect = (service) => {
+    if (service.id === 5 && service.name === 'Noticias') {
+      navigate('/notice'); // redirecciona a /notice
+    } else {
+      handleServiceClick(service); // comportamiento normal para otros servicios
+    }
   };
 
   // Función para manejar el mouse enter
@@ -439,14 +458,18 @@ const Header = () => {
       onMouseLeave={handleMouseLeave}
     >
 
-      <div className="logo-container">
-        {/* Cambiamos la imagen según el estado del scroll */}
+      <div 
+        className="logo-container" 
+        onClick={() => navigate('/')} 
+        style={{ cursor: 'pointer' }} 
+      >
         <img 
           src={scrolled ? "/logo-scroll.png" : "/logo-scroll.png"} 
           alt="Logo" 
           className="logo" 
         />
       </div>
+      
 
       {scrolled && (  // Solo mostramos el menú cuando hay scroll
         <nav className="navbar">
@@ -545,7 +568,7 @@ const Header = () => {
               <li className={`${service.id} ${activeMenuItem === service.id ? 'active' : ''}`} 
               key={service.id}>
                 <a 
-                  onClick={() => handleServiceClick(service)}
+                  onClick={() => handleServiceClickWithRedirect(service)}
                   className={`${activeService === service.name ? 'active' : ''} ${service.name === 'Blog' ? 'blog-link' : ''}`}
                 >
                   {service.name}

@@ -788,6 +788,118 @@ header.scrolled.visible.cl .container-menu{
   background: url('../../public/imagenSlide2.jpg') center /cover no-repeat;
 }
 
+/*src/components/Services/Notice.js*/
+.enterprise-hero.notice {
+  background: url('../../public/notice.png') center /cover no-repeat;
+}
+
+
+.news-carousel {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem;
+  width: 90%;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.country-section{
+  padding: 1rem;
+  span{
+    font-weight: 600;
+  }
+  img{
+    margin-right: 12px;
+  }
+}
+
+.news-card {
+  display: flex;
+  gap: 5rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+/*.news-card img {
+  width: 200px;
+  height: auto;
+}*/
+
+.news-text {
+  text-align: left;
+  color:#101E3F;
+}
+
+.ver-mas {
+  width: -webkit-fill-available;
+  margin-top: 1rem;
+  background: none;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-align: end;
+  color: #101E3F;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.next-button {
+  cursor: pointer;
+  background: #111f3f;
+  color: #fff;
+  padding: 14px 17px;
+  border-radius: 50%;
+}
+
+.full-news {
+  margin-top: 1rem;
+  max-width: 900px;
+  background: #f9f9f9;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+
+/*src/components/Services/Notice.js*/
+
+.news-details-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #fff;
+  margin-top:111px;
+  h1, h2, p{
+    text-align: left;
+  }
+}
+
+.news-details-content {
+  width: 80%;
+  line-height: 1.6;
+  color:#101E3F;
+}
+
+.news-details-content h1 {
+  font-size: 2rem;
+  color:#101E3F;
+}
+
+.news-quote {
+  font-style: italic;
+  color:#101E3F;
+  margin: 1rem 0;
+}
+
+.news-image {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-// components/Services/University.js
+// components/Services/Coursera.js
 import { useState } from "react";
 
 const Coursera = () => {

@@ -9,6 +9,8 @@ import Coursera from './components/Services/Coursera';
 import Speex from './components/Services/Speex';
 import Sence from './components/Services/Sence';
 import Nosotros from './components/Services/Nosotros';
+import Notice from './components/Services/Notice';
+import NewsDetail from './components/Services/NewsDetail';
 import WhatsappFloat from './components/ContactFloat';
 
 import './App.css';
@@ -29,6 +31,8 @@ function App() {
           <Route path="/speex" element={<Speex />} />
           <Route path="/sence" element={<Sence />} />
           <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/notice" element={<Notice />} />
+          <Route path="/noticia/:id" element={<NewsDetail />} />
         </Routes>
 
         <div className='container-wpp'>
