@@ -150,7 +150,7 @@
   height: auto;
   width: 79%;
   background: white;
-  top: 80px;
+  top: 78px;
   left: 0;
   padding: 0;
   gap: 80px;
@@ -499,6 +499,53 @@ header.scrolled.visible.cl .container-menu{
     margin-bottom: 15px;
   }
 }
+.enterprise-benefits.coursera{
+  width: 55%;
+  h3{
+    font-size: 24px;
+    border-bottom: 1px solid #101E3F;
+  }
+}
+.enterprise-benefits.nosotros{
+  p{
+    width: 75%;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    align-items: baseline;
+    margin: 45px 0
+  }
+}
+
+.end-section{
+  margin-top:25px;
+  h3{
+    font-size: 24px;
+    width: 60%;
+    margin: auto;
+    color: #101E3F;
+  }
+  .container-icon{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 80px;
+    gap:40px;
+    div{
+      max-width: 120px;
+      i{
+        color: #1c4cd5;
+        font-size: 30px;
+      }
+      p{
+        font-weight: 600;
+        margin: 5px 0 0;
+      }
+    }
+  }
+}
 
 .benefits-intro {
   font-weight: bold;
@@ -516,6 +563,17 @@ header.scrolled.visible.cl .container-menu{
   list-style: disc;
   padding-left: 1.5rem;
 }
+.benefits-list.sence{
+  list-style-type: decimal;
+  li{
+    font-weight: 600;
+    p{
+      margin: 0;
+      font-weight: 400;
+    }
+  }
+ 
+}
 
 .fixed-section{
   position: sticky;
@@ -529,7 +587,7 @@ header.scrolled.visible.cl .container-menu{
     gap: 35px;
     margin-top: 34px;
     .tab-btn{
-      width: 100px;
+      min-width: 130px;
       height: 50px;
       background: none;
       border: none;
@@ -544,7 +602,7 @@ header.scrolled.visible.cl .container-menu{
   }
 }
 
-.solutions-content{
+.solutions-content, .container-nosotros{
   margin-top: 50px;
   .tab-content{
     margin-bottom: 80px;
@@ -568,7 +626,7 @@ header.scrolled.visible.cl .container-menu{
       }
     }
   }
-  .second-content, .third-content{
+  .second-content, .third-content, .fourth-content{
     display: flex;
     gap: 70px;
     .img-content{
@@ -588,7 +646,7 @@ header.scrolled.visible.cl .container-menu{
   .speex-second{
     justify-content: space-around;
   }
-  .third-content{
+  .third-content, .fourth-content{
     margin-top: 50px;
     height: 250px;
     img{     
@@ -598,6 +656,28 @@ header.scrolled.visible.cl .container-menu{
     }
   }
 }
+
+.third-content.nosotros{
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  .text-content{
+    width: 30%;
+    text-align: left;
+    h3{
+      font-size: 48px;
+      margin: 0;
+    }
+    .benefits-list, .p-subtitle-lista{
+      margin: 0;
+    }
+  }
+}
+.mensaje-final{
+  font-size: 30px;
+  margin: 98px 0px 58px;
+}
+
 
 .enterprise-contact{
   margin: 80px 0 40px;
@@ -616,7 +696,7 @@ header.scrolled.visible.cl .container-menu{
   }
 }
 
-.datos-container, .tech-container{
+.datos-container, .tech-container, .container-nosotros{
   .tab-content{
     margin-bottom: 60px;
     h3.subtitle-career{
@@ -650,7 +730,7 @@ header.scrolled.visible.cl .container-menu{
   }
 }
 
-.tech-container, .datos-container.university{
+.tech-container, .datos-container.university, .container-nosotros{
   .first-content {
     width: fit-content;
     padding: 0px 15px;
@@ -679,6 +759,36 @@ header.scrolled.visible.cl .container-menu{
 .enterprise-hero.university {
   background: url('../../public/university.jpg') center/cover no-repeat;
 }
+
+/*src/components/Services/Goberment.js*/
+.enterprise-hero.goberment {
+  background: url('../../public/goberment.jpg') center -33%/cover no-repeat;
+}
+
+/*src/components/Services/Coursera.js*/
+.enterprise-hero.coursera{
+  background: url('../../public/coursera-section.jpg') center 33%/cover no-repeat;
+  align-items: flex-start;
+  justify-content: flex-end;
+  .hero-overlay {
+    background: #ffffff42;
+    padding: 15px;
+  }
+}
+.enterprise-hero.speex{
+  .hero-overlay {
+    height: 100px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/*src/components/Services/Nosotros.js*/
+.enterprise-hero.nosotros {
+  background: url('../../public/imagenSlide2.jpg') center /cover no-repeat;
+}
+
+
 
 
 

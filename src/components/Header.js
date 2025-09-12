@@ -160,9 +160,9 @@ const Header = () => {
                 <li>Mejora las experiencias de aprendizajes</li>
                 <li>Contenido de nivel mundial</li>
               </ul>
-              <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-              </a>
+              <Link to="/goberment" className="ver-mas-link">
+                Ver más <span>&#8594;</span>
+              </Link>
             </div>
           </div>
         </>
@@ -195,9 +195,9 @@ const Header = () => {
               <p>La solución más efectiva para aprender inglés</p>
             </div>
           </div>
-          <a href="#vermas" className="ver-mas-link">
-              Ver más <span>&#8594;</span>
-          </a>
+          <Link to="/goberment" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -217,9 +217,9 @@ const Header = () => {
                 <li>Academia de datos</li>
                 <li>Academia de tecnoloía</li>
               </ul>
-              <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-              </a>
+              <Link to="/coursera" className="ver-mas-link">
+                Ver más <span>&#8594;</span>
+              </Link>
             </div>
             {/* Columna 2 */}
             <div className="column coursera">
@@ -229,9 +229,9 @@ const Header = () => {
                 <li>Academic integrity</li>
                 <li>Certificados profesionales</li>
               </ul>
-              <a href="#vermas2" className="ver-mas-link">
+              <Link to="/coursera" className="ver-mas-link">
                 Ver más <span>&#8594;</span>
-              </a>
+              </Link>
             </div>
             {/* Columna 3 */}
             <div className="column coursera">
@@ -242,9 +242,9 @@ const Header = () => {
                 <li>Academia de tecnología</li>
                 <li>Academia de liderazgos</li>
               </ul>
-              <a href="#vermas3" className="ver-mas-link">
+              <Link to="/coursera" className="ver-mas-link">
                 Ver más <span>&#8594;</span>
-              </a>
+              </Link>
             </div>
           </div>
         </>
@@ -278,9 +278,27 @@ const Header = () => {
             </div>
             
           </div>
-          <a href="#vermas" className="ver-mas-link">
+          <Link to="/speex" className="ver-mas-link">
             Ver más <span>&#8594;</span>
-          </a>
+          </Link>
+        </>
+      ),
+    },
+    {
+      id: 4,
+      name: 'SENCE',
+      description: (
+        <>
+          <div className="columns-container">
+            {/* Columna 1 */}
+            <div className="column">
+              <h4>Servicio Nacional de Capacitación y Empleo</h4>
+              <p>El SENCE es un organismo público dependiente del Ministerio del Trabajo y Previsión Social de Chile. Su misión es aumentar la empleabilidad de las personas y la productividad de las empresas, mediante programas de capacitación, subsidios al empleo y certificación de competencias.</p>
+            </div>
+          </div>
+          <Link to="/sence" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -299,9 +317,9 @@ const Header = () => {
             </p>
             </div>
           </div>
-          <a href="#vermas1" className="ver-mas-link">
-                Ver más <span>&#8594;</span> {/* Flecha hacia la derecha */}
-          </a>
+          <Link to="/nosotros" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -371,7 +389,7 @@ const Header = () => {
 
   // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
   useEffect(() => {
-    if (location.pathname === "/enterprise" || location.pathname === "/university") {
+    if (location.pathname === "/enterprise" || location.pathname === "/university" || location.pathname === "/goberment" || location.pathname === "/coursera" || location.pathname === "/speex" || location.pathname === "/sence" || location.pathname === "/nosotros") {
       setScrolled(true);
     } else {
       // Función que se llama cada vez que el usuario hace scroll
