@@ -35,6 +35,7 @@
     background-repeat: no-repeat;
     width: 100%;
     height: -webkit-fill-available;
+    width: -webkit-fill-available;
     transition: 0.5s;
     div.text-home{
       background: #101e3f8a;
