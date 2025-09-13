@@ -135,7 +135,7 @@ const Home = () => {
             {currentNews.country.name}
           </span>
         </div>
-        <div className="news-card">
+        <div className="news-card home-news">
           <img src={currentNews.image} alt={currentNews.title} />
           <div className="news-text">
             <h2>{currentNews.title}</h2>

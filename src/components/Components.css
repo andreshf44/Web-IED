@@ -818,7 +818,11 @@ header.scrolled.visible.cl .container-menu{
   gap: 5rem;
   padding: 1rem;
   align-items: center;
-  z-index: 2;
+}
+.home.scrolled{
+  .news-card {
+    z-index: 1;
+  }
 }
 
 /*.news-card img {
