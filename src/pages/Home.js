@@ -1,20 +1,10 @@
 // src/pages/Home.js
 
-
-
-
-
-
- /* return (
-    <div className="home">
-      
-    </div>
-  );*/
-
-
-// src/pages/Home.js
 import React, { useState, useEffect } from 'react';
 import './Home.css';
+import { newsData } from "../components/Services/Notice";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
   // Array con las rutas de las imágenes para el carrusel
@@ -33,24 +23,24 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
 
-    // Función que se llama cada vez que el usuario hace scroll
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);  // Si se hizo scroll hacia abajo más de 50px, mostramos el logo scroll
-      } else {
-        setScrolled(false); // Si estamos en la parte superior, mostramos el logo inicial
-      }
+  // Función que se llama cada vez que el usuario hace scroll
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setScrolled(true);  // Si se hizo scroll hacia abajo más de 50px, mostramos el logo scroll
+    } else {
+      setScrolled(false); // Si estamos en la parte superior, mostramos el logo inicial
+    }
+  };
+  
+  // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+  
+    // Limpiamos el event listener cuando el componente se desmonta
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
-  
-    // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
-    useEffect(() => {
-      window.addEventListener('scroll', handleScroll);
-  
-      // Limpiamos el event listener cuando el componente se desmonta
-      return () => {
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []);
+  }, []);
 
   useEffect(() => {
     // Configuramos el intervalo para cambiar el slide cada 3 segundos
@@ -61,6 +51,22 @@ const Home = () => {
     // Limpiar el intervalo al desmontar el componente
     return () => clearInterval(interval);
   }, []);
+
+  const navigate = useNavigate();
+  const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
+  const currentNews = newsData[currentNewsIndex];
+
+  const nextSlide = () => {
+    setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % newsData.length);
+  };
+
+  const handleVerMas = (news) => {
+    if (news.externalLink) {
+      window.open(news.externalLink, "_blank");
+    }      else {
+      navigate(`/noticia/${news.id}`);
+    }
+  };
 
   return (
     <div className={`home ${scrolled ? 'scrolled' : ''}`}>
@@ -117,7 +123,33 @@ const Home = () => {
        </div>
       )}
      
-      
+      {/* Carrusel de noticias */}
+      <section className="news-carousel">
+        <div className="country-section">
+          <span>
+            <img
+              src={`https://flagcdn.com/${currentNews.country.code}.svg`}
+              width="24"
+              alt={`Bandera de ${currentNews.country.name}`}
+            />
+            {currentNews.country.name}
+          </span>
+        </div>
+        <div className="news-card">
+          <img src={currentNews.image} alt={currentNews.title} />
+          <div className="news-text">
+            <h2>{currentNews.title}</h2>
+            <p>{currentNews.summary}</p>
+            <button className="ver-mas" onClick={() => handleVerMas(currentNews)}>
+              Ver más →
+            </button>
+          </div>
+          <button className="next-button" onClick={nextSlide}>
+            <i className="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
+
     </div>
   );
 };

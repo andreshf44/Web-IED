@@ -818,6 +818,7 @@ header.scrolled.visible.cl .container-menu{
   gap: 5rem;
   padding: 1rem;
   align-items: center;
+  z-index: 2;
 }
 
 /*.news-card img {
@@ -869,7 +870,7 @@ header.scrolled.visible.cl .container-menu{
   padding: 2rem;
   background-color: #fff;
   margin-top:111px;
-  h1, h2, p{
+  h1, h2, p, ul{
     text-align: left;
   }
 }
@@ -878,6 +879,10 @@ header.scrolled.visible.cl .container-menu{
   width: 80%;
   line-height: 1.6;
   color:#101E3F;
+}
+.image-group{
+  display: flex;
+  gap: 25px;
 }
 
 .news-details-content h1 {
@@ -895,7 +900,6 @@ header.scrolled.visible.cl .container-menu{
   width: 100%;
   max-width: 100%;
   margin: 1rem 0;
-  border-radius: 8px;
 }
 
 

@@ -66,29 +66,22 @@ export const newsData = [
     country: { name: "Chile", code: "cl" },
     contentBlocks: [
       {
-        type: "quote",
+        type: "paragraph",
         text: "Esta alianza entre la Universidad San Sebastián e i-ED, marca un antes y un después en la forma en que concebimos la formación universitaria, expresó Gilbert Leiva, presidente de i-ED."
       },
       {
-        type: "paragraph",
-        text: "La Universidad San Sebastián (USS) formaliza una alianza con Coursera, representada en LATAM por i-ED Educación Digital, para fortalecer la empleabilidad de sus estudiantes."
+        type: "imageGroup",
+        src: ["/universidadSebastian1.png", "/universidadSebastian.png"],
+        alt: "Imágenes de la Universidad San Sebastián"
       },
       {
         type: "paragraph",
-        text: "Esta colaboración tiene tres grandes pilares: el desarrollo del cuerpo académico, integración de microcredenciales, y acceso a certificaciones de industria para toda la comunidad universitaria."
+        text: ["La Universidad San Sebastián (USS) formaliza una alianza con Coursera, representada en LATAM por i-ED Educación Digital, para fortalecer la empleabilidad de sus estudiantes.",
+               '"Estamos muy entusiasmados por este acuerdo con una de las universidades más grandes de Chile. Esta colaboración tiene tres grandes pilares: el desarrollo profesional del cuerpo académico y administrativo; la integración de microcredenciales en los programas de estudio; y el acceso a certificaciones de industria para toda la comunidad universitaria, incluidos exalumnos", Christian Hernandez Quiroz, Director Coursera Enterprise LATAM',
+               'Por su parte, el presidente de i-ED, Gilbert E. Leiva Angulo, asegura que "Esta alianza entre la Universidad San Sebastián e i-ED como representantes de Coursera en LATAM, marca un antes y un después en la forma en que concebimos la formación universitaria. Desde i-ED, creemos que integrar microcredenciales internacionales en la oferta curricular no solo fortalece la empleabilidad de los estudiantes, sino que conecta la educación con los desafíos reales del mercado laboral. Estamos convencidos de que este es el camino: una educación de clase mundial, accesible y alineada con las habilidades que el futuro exige hoy.”',
+               'En i-ED seguiremos acompañando a las instituciones que apuestan por una educación transformadora, conectada con el futuro del trabajo y las oportunidades globales.'
+              ] 
       },
-      {
-        type: "image",
-        src: "/uss1.png"
-      },
-      {
-        type: "image",
-        src: "/uss2.png"
-      },
-      {
-        type: "paragraph",
-        text: "El presidente de i-ED, Gilbert Leiva, comentó que esta alianza marca un hito en la transformación de la educación superior en Chile."
-      }
     ]
   },
   {
@@ -100,16 +93,35 @@ export const newsData = [
     contentBlocks: [
       {
         type: "paragraph",
-        text: "El Global Skills Report 2025 posiciona a Perú en el puesto 45 de 109 naciones evaluadas en habilidades digitales."
-      },
-      {
-        type: "paragraph",
-        text: "El país ha demostrado avances importantes en áreas como tecnología, ciencia de datos y negocios."
+        text: "El Global Skills Report 2025 ubica al país en el puesto 45 de 109 naciones, con avances en tecnología, ciencia de datos y negocios. El 7% de la fuerza laboral ya busca capacitarse online."
       },
       {
         type: "imageText",
         src: "/talentoDigital.png",
-        text: "Además, el 7% de la fuerza laboral peruana ya ha comenzado a capacitarse en línea para adaptarse a la nueva economía digital."
+      },
+      {
+        type: "paragraph",
+        text: ["En medio de la aceleración tecnológica global, el Perú empieza a posicionarse como una cantera de talento digital. El país ocupa el puesto 45 de 109 economías analizadas en el Global Skills Report 2025 de Coursera, destacando en áreas clave como tecnología (puesto 38), ciencia de datos (46) y negocios (54).",
+               'El informe —basado en datos de más de 175 millones de usuarios en todo el mundo— señala que el 7% de la fuerza laboral peruana está activa en esta plataforma de aprendizaje online, lo que revela un interés creciente por el desarrollo de competencias ligadas a la economía digital.',
+               'Uno de los focos del reporte es el notable crecimiento en la demanda de cursos vinculados a nuevas tecnologías. Solo en el último año, las inscripciones en programas de inteligencia artificial generativa (GenAI) crecieron 243% en el país, mientras que los cursos de ciberseguridad y certificaciones profesionales aumentaron un 33%.',
+               '“Este crecimiento muestra que los profesionales peruanos están dando pasos importantes hacia la transformación de su perfil laboral. La adopción de habilidades digitales de alto valor es clave para aumentar la competitividad del país”, comentó Gilbert Leiva, CEO de I‑ED, organización que representa a Coursera en Perú.'
+              ] 
+      },
+      {
+        type: "imageText",
+        src: "/talentoDigital1.png",
+      },
+      {
+        type: "subtitle",
+        text: "Talento diverso, competencias en expansión"
+      },
+      {
+        type: "paragraph",
+        text: ['El informe también resalta una participación significativa de mujeres en el aprendizaje digital. Representan el 44% del total de estudiantes peruanos en Coursera, con presencia destacada en inteligencia artificial generativa (28%), programas STEM (32%) y certificaciones profesionales (13%).',
+               'Entre las habilidades más desarrolladas en el país figuran la inteligencia de mercados, el desarrollo de negocios, el marketing de marca y la gestión financiera. Estas áreas resultan esenciales para sectores que demandan personal técnico, estratégico y altamente capacitado.',
+               'A pesar del avance, el camino hacia una digitalización más equitativa aún presenta desafíos. El cierre de brechas educativas, de género y de acceso tecnológico será determinante para consolidar una economía basada en el conocimiento.',
+               'El informe completo del Global Skills Report 2025 puede consultarse aquí.'
+              ] 
       }
     ]
   },
@@ -122,7 +134,7 @@ export const newsData = [
     contentBlocks: [
       {
         type: "paragraph",
-        text: "El Global Skills Report 2025 indica que Perú ocupa el puesto 45 a nivel mundial en habilidades digitales."
+        text: "El informe revela un crecimiento notable en cursos de inteligencia artificial generativa y ciberseguridad mientras expertos destacan la oportunidad para consolidar una economía del conocimiento con profesionales preparados para afrontar los desafíos tecnológicos del mercado."
       },
       {
         type: "image",
@@ -130,11 +142,84 @@ export const newsData = [
       },
       {
         type: "paragraph",
-        text: "Los peruanos están mostrando un fuerte interés en cursos de GenAI y ciberseguridad, lo que indica una tendencia positiva."
+        text: [
+          "Perú ha sido reconocido por su avance en habilidades digitales al alcanzar el puesto 45 entre 109 países en el Global Skills Report 2025, elaborado por Coursera. Este informe global, que mide la preparación del talento digital en áreas como tecnología, ciencia de datos y negocios, coloca al país andino como un actor emergente en el camino hacia una economía del conocimiento.",
+          'La posición obtenida refleja una mejora sostenida en la capacidad de la población para enfrentar los desafíos de una economía cada vez más digitalizada. En un mundo donde las habilidades tecnológicas definen la competitividad, Perú comienza a consolidar una base técnica clave para su desarrollo.'
+        ]
+      },
+      {
+        type: "subtitle",
+        text: "Indicadores que muestran progreso en digitalización"
       },
       {
         type: "paragraph",
-        text: "Expertos coinciden en que este crecimiento es clave para desarrollar una economía del conocimiento sostenible."
+        text: [
+          "El desempeño de Perú en el informe es alentador. El país ocupa el puesto 38 en habilidades tecnológicas, el 46 en ciencia de datos y el 54 en negocios. Estas cifras, aunque todavía modestas, indican una base sobre la que puede construirse una fuerza laboral más preparada para los cambios disruptivos que impone la transformación digital.",
+          'Según el informe de Coursera, el país muestra un creciente interés por las tecnologías emergentes, especialmente en los últimos doce meses. Las inscripciones en cursos de inteligencia artificial generativa (GenAI) se dispararon en un 243%, mientras que los programas relacionados con ciberseguridad y certificados profesionales experimentaron un crecimiento del 33%. Esta tendencia sugiere un esfuerzo consciente y sostenido por parte de los profesionales peruanos para adquirir competencias que son cada vez más demandadas a nivel global.'
+        ]
+      },
+      {
+        type: "image",
+        src: "/habilidadesDigitales1.png"
+      },
+      {
+        type: "subtitle",
+        text: "Una economía del conocimiento en construcción"
+      },
+      {
+        type: "paragraph",
+        text: [
+          'Expertos del sector tecnológico coinciden en que Perú está en una etapa decisiva para definir su rol en la economía digital del futuro. Gilbert Leiva, CEO de I-ED, socio oficial de Coursera en Perú, señaló que “Perú está dando pasos firmes hacia una economía del conocimiento, con profesionales que desarrollan habilidades digitales para adaptarse a los cambios tecnológicos del mercado”.',
+          'Para Leiva, el notable crecimiento en áreas como inteligencia artificial y ciberseguridad representa “un compromiso con el desarrollo de competencias de alto valor”. Además, advierte que este momento debe aprovecharse para consolidar los avances logrados y proyectar el desarrollo tecnológico del país a largo plazo.'
+        ]
+      },
+      {
+        type: "subtitle",
+        text: "Participación femenina y reducción de brechas"
+      },
+      {
+        type: "paragraph",
+        text: [
+          'Uno de los puntos destacados del informe es la participación de las mujeres peruanas en el proceso de adquisición de habilidades digitales. Ellas representan el 44% del total de estudiantes en Coursera, con una presencia significativa en sectores estratégicos: 28% en GenAI, 32% en programas STEM (ciencia, tecnología, ingeniería y matemáticas) y 13% en certificaciones profesionales.',
+          'Estos datos apuntan a una tendencia positiva en cuanto a inclusión de género en áreas clave para el desarrollo económico del país. No obstante, aún existen desafíos importantes en cuanto al acceso y permanencia de las mujeres en campos tradicionalmente dominados por hombres, especialmente en los niveles más altos de especialización y liderazgo tecnológico.'
+        ]
+      },
+      {
+        type: "image",
+        src: "/habilidadesDigitales2.png"
+      },
+      {
+        type: "subtitle",
+        text: "Habilidades clave para sectores productivos"
+      },
+      {
+        type: "paragraph",
+        text:'Las competencias más desarrolladas por los estudiantes peruanos en Coursera revelan una alineación con las necesidades de sectores productivos que requieren personal altamente calificado. Entre las habilidades mejor posicionadas se encuentran:'
+      },
+      {
+        type: "list",
+        items: [
+          "Inteligencia de mercados",
+          "Desarrollo de negocios",
+          "Marketing de marca",
+          "Gestión financiera"
+        ]
+      },
+      {
+        type: "paragraph",
+        text: 'Estas capacidades son fundamentales para el crecimiento de empresas que buscan innovar, posicionarse en mercados internacionales y responder a nuevas demandas del consumidor digital.'
+      },
+      {
+        type: "subtitle",
+        text: "Un camino prometedor, pero con retos pendientes"
+      },
+      {
+        type: "paragraph",  
+        text: [
+          'Si bien Perú ha logrado avances importantes, el camino hacia una verdadera transformación digital inclusiva aún enfrenta retos estructurales. Para consolidar este proceso, es fundamental mantener el impulso de la capacitación, cerrar las brechas de acceso digital (especialmente en zonas rurales), y fortalecer la articulación entre formación técnica, innovación y oportunidades laborales concretas.',
+          'Además, el sector público, el privado y las instituciones educativas deben colaborar estrechamente para diseñar políticas que permitan que más peruanos —de todas las regiones y niveles socioeconómicos— puedan acceder a oportunidades de formación tecnológica y crecimiento profesional.',
+          'Con un escenario global que exige talento adaptable y altamente calificado, Perú parece estar en el camino correcto. Sin embargo, su éxito dependerá de su capacidad para sostener este ritmo de desarrollo, garantizar una inclusión efectiva y convertir el conocimiento en progreso económico y social.'
+        ]      
       }
     ]
   },

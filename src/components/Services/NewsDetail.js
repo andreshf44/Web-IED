@@ -5,73 +5,98 @@ import { useParams } from "react-router-dom";
 import { newsData } from "./Notice.js"; // Asegúrate de que Notice.js exporte `newsData` correctamente
 
 const NewsDetail = () => {
-  const { id } = useParams();
-  const newsItem = newsData.find((item) => item.id === parseInt(id));
+    const { id } = useParams();
+    const newsItem = newsData.find((item) => item.id === parseInt(id));
 
-  // Redirección automática si la noticia tiene un link externo
-  useEffect(() => {
-    if (newsItem?.externalLink) {
-      window.location.href = newsItem.externalLink;
-    }
-  }, [newsItem]);
+    // Redirección automática si la noticia tiene un link externo
+    useEffect(() => {
+        if (newsItem?.externalLink) {
+        window.location.href = newsItem.externalLink;
+        }
+    }, [newsItem]);
 
-  // Mostrar mensaje si no existe la noticia
-  if (!newsItem) return <p>Noticia no encontrada</p>;
+    // Mostrar mensaje si no existe la noticia
+    if (!newsItem) return <p>Noticia no encontrada</p>;
 
-  // Evita renderizar el contenido si ya se redirige
-  if (newsItem.externalLink) return null;
+    // Evita renderizar el contenido si ya se redirige
+    if (newsItem.externalLink) return null;
 
-  return (
-    <div className="news-details-container">
-      <div className="news-details-content">
-        <h1>{newsItem.title}</h1>
+    return (
+        <div className="news-details-container">
+            <div className="news-details-content">
+                <h1>{newsItem.title}</h1>
 
-        {/* Cita destacada */}
-        {newsItem.quote && (
-          <p className="news-quote">
-            <em>{newsItem.quote}</em>
-          </p>
-        )}
+                {/* Cita destacada */}
+                {newsItem.quote && (
+                <p className="news-quote">
+                    <em>{newsItem.quote}</em>
+                </p>
+                )}
 
-        {/* Render dinámico de bloques de contenido */}
-        {newsItem.contentBlocks?.map((block, index) => {
-          switch (block.type) {
-            case "subtitle":
-              return <h2 key={index}>{block.text}</h2>;
-            case "paragraph":
-              return <p key={index}>{block.text}</p>;
-            case "image":
-              return (
-                <img
-                  key={index}
-                  src={block.src}
-                  alt={block.alt || "Imagen de la noticia"}
-                  className="news-image"
-                />
-              );
-              case "imageText":
-                return (
-                  <div key={index} className="image-text-block">
-                    <img src={block.src} alt={block.alt || "Imagen"} />
-                    {Array.isArray(block.text)
-                      ? block.text.map((t, i) => <p key={i}>{t}</p>)
-                      : <p>{block.text}</p>}
-                  </div>
-                );
+                {/* Render dinámico de bloques de contenido */}
+                {newsItem.contentBlocks?.map((block, index) => {
+                    switch (block.type) {
+                    case "subtitle":
+                        return <h2 key={index}>{block.text}</h2>;
+                    case "paragraph":
+                        return Array.isArray(block.text) ? (
+                        block.text.map((paragraph, i) => <p key={i}>{paragraph}</p>)
+                        ) : (
+                        <p key={index}>{block.text}</p>
+                        );
+                    case "image":
+                        return (
+                        <img
+                        key={index}
+                        src={block.src}
+                        alt={block.alt || "Imagen de la noticia"}
+                        className="news-image"
+                        />
+                        );
+                    case "imageGroup":
+                        return (
+                        <div key={index} className="image-group">
+                            {block.src.map((imgSrc, i) => (
+                            <img
+                                key={i}
+                                src={imgSrc}
+                                alt={block.alt || `Imagen ${i + 1}`}
+                                className="news-image"
+                            />
+                            ))}
+                        </div>
+                        );
+                    case "imageText":
+                        return (
+                            <div key={index} className="image-text-block">
+                            <img src={block.src} alt={block.alt || "Imagen"} />
+                            {Array.isArray(block.text)
+                                ? block.text.map((t, i) => <p key={i}>{t}</p>)
+                                : <p>{block.text}</p>}
+                            </div>
+                        );
               
-            case "quote":
-              return (
-                <blockquote key={index}>
-                  <em>{block.text}</em>
-                </blockquote>
-              );
-            default:
-              return null;
-          }
-        })}
-      </div>
-    </div>
-  );
+                    case "quote":
+                        return (
+                            <blockquote key={index}>
+                            <em>{block.text}</em>
+                            </blockquote>
+                        );
+                    case "list":
+                        return (
+                        <ul key={index}>
+                            {block.items.map((item, i) => (
+                            <li key={i}>{item}</li>
+                            ))}
+                        </ul>
+                        );
+                    default:
+                    return null;
+                    }
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default NewsDetail;
