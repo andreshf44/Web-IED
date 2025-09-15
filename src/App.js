@@ -11,6 +11,7 @@ import Sence from './components/Services/Sence';
 import Nosotros from './components/Services/Nosotros';
 import Notice from './components/Services/Notice';
 import NewsDetail from './components/Services/NewsDetail';
+import { CountryProvider } from './components/CountryContext';
 import WhatsappFloat from './components/ContactFloat';
 
 import './App.css';
@@ -18,30 +19,31 @@ import './Web.css';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/enterprise" element={<Enterprise />} />
-          <Route path="/university" element={<University />} />
-          <Route path="/goberment" element={<Goberment />} />
-          <Route path="/coursera" element={<Coursera />} />
-          <Route path="/speex" element={<Speex />} />
-          <Route path="/sence" element={<Sence />} />
-          <Route path="/nosotros" element={<Nosotros />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/noticia/:id" element={<NewsDetail />} />
-        </Routes>
+    <CountryProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/university" element={<University />} />
+            <Route path="/goberment" element={<Goberment />} />
+            <Route path="/coursera" element={<Coursera />} />
+            <Route path="/speex" element={<Speex />} />
+            <Route path="/sence" element={<Sence />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/notice" element={<Notice />} />
+            <Route path="/noticia/:id" element={<NewsDetail />} />
+          </Routes>
 
-        <div className='container-wpp'>
-          <WhatsappFloat />
+          <div className='container-wpp'>
+            <WhatsappFloat />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </CountryProvider>
   );
 }
 
 export default App;
-

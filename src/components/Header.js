@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './Components.css';  // Importamos los estilos de Header
 import { ReactComponent as ChevronDown } from '../assets/chevron-down.svg';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useCountry } from "./CountryContext";
 
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
   const [selectedService, setSelectedService] = useState(null); // Estado para almacenar el servicio seleccionado
   const [isMenuVisible, setIsMenuVisible] = useState(false); // Estado para controlar la visibilidad del menu
+  const [menuFixed, setMenuFixed] = useState(false);
   const [activeService, setActiveService] = useState(null); // Para gestionar el servicio activo
   const [activeMenuItem, setActiveMenuItem] = useState(null);
   const [isCountriesVisible, setIsCountriesVisible] = useState(false);// Estado para manejar la visibilidad de la lista de países
   const [selectedCountry, setSelectedCountry] = useState(""); // Estado para el país seleccionado
+  const { setSelectedCountryCode } = useCountry();
   const location = useLocation();
   const navigate = useNavigate(); //noticias
 
@@ -219,9 +222,6 @@ const Header = () => {
                 <li>Academia de datos</li>
                 <li>Academia de tecnoloía</li>
               </ul>
-              <Link to="/coursera" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </Link>
             </div>
             {/* Columna 2 */}
             <div className="column coursera">
@@ -231,9 +231,6 @@ const Header = () => {
                 <li>Academic integrity</li>
                 <li>Certificados profesionales</li>
               </ul>
-              <Link to="/coursera" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </Link>
             </div>
             {/* Columna 3 */}
             <div className="column coursera">
@@ -244,11 +241,11 @@ const Header = () => {
                 <li>Academia de tecnología</li>
                 <li>Academia de liderazgos</li>
               </ul>
-              <Link to="/coursera" className="ver-mas-link">
-                Ver más <span>&#8594;</span>
-              </Link>
             </div>
           </div>
+          <Link to="/coursera" className="ver-mas-link">
+            Ver más <span>&#8594;</span>
+          </Link>
         </>
       ),
     },
@@ -291,7 +288,7 @@ const Header = () => {
       name: 'SENCE',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container sence">
             {/* Columna 1 */}
             <div className="column">
               <h4>Servicio Nacional de Capacitación y Empleo</h4>
@@ -355,11 +352,11 @@ const Header = () => {
           <div className="columns-container content-contactanos">
             <p className='subtitle'>Comunícate con nosotros a través de nuestro correo electrónico:</p>
             <div className='top-section'>
-              <div className='pais'>
+              <div className='pais argentina'>
                 <span><img src="https://flagcdn.com/ar.svg" width="24"/>Argentina</span>
                 <p>argentina@educaciondigitalsa.com</p>
               </div>
-              <div className='pais'>
+              <div className='pais colombia'>
                 <span><img src="https://flagcdn.com/co.svg" width="24"/> Colombia</span>
                 <p>colombia@educaciondigitalsa.com</p>
               </div>
@@ -373,11 +370,11 @@ const Header = () => {
                 <span><img src="https://flagcdn.com/cl.svg" width="24" alt="Bandera de Chile" /> Chile</span>
                 <p>chile@educaciondigitalsa.com</p>
               </div>
-              <div className='pais'>
+              <div className='pais mexico'>
                 <span><img src="https://flagcdn.com/mx.svg" width="24" alt="Bandera de México" /> México</span>
                 <p>mexico@educaciondigitalsa.com</p>
               </div>
-              <div className='pais'>
+              <div className='pais latam'>
                 <span className='latam'><img src="https://img.icons8.com/ios-filled/50/globe--v1.png" width="21" alt="LATAM icon" /> LATAM</span>
                 <p>latam@i-edglobal.com</p>
               </div>
@@ -416,6 +413,21 @@ const Header = () => {
     }
   }, [location.pathname]);
 
+  //Manejo del despliegue del menu header
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest('header')) {
+        setMenuFixed(false);
+        setIsMenuVisible(false);
+        setActiveMenuItem(null);
+      }
+    };
+  
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+  
+
   // Función para actualizar el servicio seleccionado
   const handleServiceClick = (service) => {
     setSelectedService(service);  // Actualiza el servicio seleccionado
@@ -433,13 +445,33 @@ const Header = () => {
 
   // Función para manejar el mouse enter
   const handleMouseEnter = (menuId) => {
-    setActiveMenuItem(menuId); // Establece el id del menú que está activo
-    setIsMenuVisible(true);
-    setSelectedService(null); 
+    if (!menuFixed) {
+      setActiveMenuItem(menuId);
+      setIsMenuVisible(true);
+      setSelectedService(null);
+    }
   };
 
   const handleMouseLeave = () => {
-    setIsMenuVisible(false);  // Ocultar el submenú al quitar el ratón
+    if (!menuFixed) {
+      setIsMenuVisible(false);
+      setActiveMenuItem(null);
+    }
+  };
+
+  const handleMenuClick = (menuId) => {
+    if (menuFixed && activeMenuItem === menuId) {
+      // Si ya está fijado en este menú, lo desactiva
+      setMenuFixed(false);
+      setIsMenuVisible(false);
+      setActiveMenuItem(null);
+    } else {
+      // Fija el menú en esta opción
+      setMenuFixed(true);
+      setActiveMenuItem(menuId);
+      setIsMenuVisible(true);
+      setSelectedService(null);
+    }
   };
 
   // Función para alternar la visibilidad de la lista de países
@@ -448,9 +480,10 @@ const Header = () => {
   };
 
   // Función para manejar la selección de un país
-  const handleCountrySelect = (country, countryCode) => {
-    setSelectedCountry(countryCode);  // Cambiar el estado con el código del país (ej. "CL")
-    setIsCountriesVisible(false); // Ocultar la lista después de la selección
+  const handleCountrySelect = (name, code) => {
+    setSelectedCountryCode(code.toLowerCase());  // actualiza en el contexto
+    setSelectedCountry(code);                   // actualiza localmente en Header
+    setIsCountriesVisible(false);               // oculta el menú
   };
 
   return (
@@ -477,6 +510,7 @@ const Header = () => {
             <li 
                className={`nav-item ${activeMenuItem === 1 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(1)}
+              onClick={() => handleMenuClick(1)}
             ><a href="#servicios">
                 <span>Para</span>
                 <span className='name-item'>
@@ -488,6 +522,7 @@ const Header = () => {
             <li 
                className={`nav-item ${activeMenuItem === 2 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(2)}
+              onClick={() => handleMenuClick(2)}
             ><a href="#servicios">
                 <span>Para</span>
                 <span className='name-item'>
@@ -499,6 +534,7 @@ const Header = () => {
             <li 
                className={`nav-item ${activeMenuItem === 3 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(3)}
+              onClick={() => handleMenuClick(3)}
             ><a href="#servicios">
                 <span>Para</span>
                 <span className='name-item'>
@@ -510,6 +546,7 @@ const Header = () => {
             <li
                 className={`nav-item ${activeMenuItem === 4 ? 'active' : ''}`} 
                onMouseEnter={() => handleMouseEnter(4)}
+               onClick={() => handleMenuClick(4)}
             ><a href="#paises">
                 <span className='name-item'>
                   Soluciones
@@ -520,6 +557,7 @@ const Header = () => {
             <li
                className={`nav-item ${activeMenuItem === 5 ? 'active' : ''}`} 
               onMouseEnter={() => handleMouseEnter(5)}
+              onClick={() => handleMenuClick(5)}
             ><a href="#mas">
                <span className='name-item'>
                   Más
@@ -569,7 +607,7 @@ const Header = () => {
               key={service.id}>
                 <a 
                   onClick={() => handleServiceClickWithRedirect(service)}
-                  className={`${activeService === service.name ? 'active' : ''} ${service.name === 'Blog' ? 'blog-link' : ''}`}
+                  className={`${activeService === service.name ? 'active' : ''} ${service.name === 'Blog' ? 'blog-link' : ''} ${service.name === 'SENCE' ? 'sence-link' : ''}`}
                 >
                   {service.name}
                 </a>

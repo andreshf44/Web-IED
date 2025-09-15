@@ -43,12 +43,51 @@
       color: #fff;
       font-size: 55px;
       margin-top: 400px;
+      text-align: center;
+      transform: translateX(-100%);
+      animation: slideInFromLeft 1s ease-out forwards;
+      transition: transform 0.4s ease, background 0.4s ease;
+      transform-origin: center;
+      will-change: transform;
       p{
         margin: 20px;
+        display: inline-block;
+        cursor: default;
+        text-shadow: 0 0 10px #ffffff33, 0 0 20px #00ffff33;
+        transition: text-shadow 0.4s ease, color 0.4s ease;
+      }
+      &:hover {
+        transform: scale(1.1) !important; 
+        background: #122d5aaa;
+        p{
+          color: #00ffff;
+          text-shadow: 0 0 15px #00ffffaa;
+        }
       }
     }
   }
 }
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200%;
+  }
+  100% {
+    background-position: 200%;
+  }
+}
+
 
 .home::after {
 content: ''; /* Necesario para que se muestre el pseudo-elemento */

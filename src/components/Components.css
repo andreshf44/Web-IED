@@ -162,10 +162,11 @@
       list-style-type: none;
       padding: 0;
       li {
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        height: 50px;
         margin-bottom: 10px;
-        height: 45px;
-        height: 20px;
-        padding-top: 24px;
         a {
           text-decoration: none;
           color: #000;
@@ -206,6 +207,10 @@
           }
         }
         .column.beneficios{
+          p{
+            width: 80%;
+
+          }
           li{
             list-style-type: disc;
           }
@@ -304,8 +309,14 @@
             }
             p{
               font-weight: 600;
+              font-size: 14px;
             }
           }
+        }
+      }
+      .columns-container.sence{
+        p{
+          width: 80%;
         }
       }
 
@@ -336,17 +347,22 @@
       display: none;
     }
     li.active{
-      display: block;
+      display: flex;
     }
-    li:has(.blog-link){
+    li:has(.blog-link) {
       display: none;
+    }
+    li:has(.sence-link){
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }
 header.scrolled.visible.cl .container-menu{
   .option-menu{
-    li:has(.blog-link){
-      display: list-item;
+    li:has(.sence-link){
+      opacity: 1;
+      visibility: visible;
     }
   }
   .content-option{
@@ -354,7 +370,55 @@ header.scrolled.visible.cl .container-menu{
       .pais{
         display: none;
       }
-      .pais.chile{
+      .pais.chile, .pais.latam{
+        display: block;
+      }
+    }
+  }
+}
+header.scrolled.visible.ar .container-menu{
+  .content-option{
+    .columns-container.content-contactanos{
+      .pais{
+        display: none;
+      }
+      .pais.argentina, .pais.latam{
+        display: block;
+      }
+    }
+  }
+}
+header.scrolled.visible.co .container-menu{
+  .content-option{
+    .columns-container.content-contactanos{
+      .pais{
+        display: none;
+      }
+      .pais.colombia, .pais.latam{
+        display: block;
+      }
+    }
+  }
+}
+header.scrolled.visible.mx .container-menu{
+  .content-option{
+    .columns-container.content-contactanos{
+      .pais{
+        display: none;
+      }
+      .pais.mexico, .pais.latam{
+        display: block;
+      }
+    }
+  }
+}
+header.scrolled.visible.pe .container-menu{
+  .content-option{
+    .columns-container.content-contactanos{
+      .pais{
+        display: none;
+      }
+      .pais.peru, .pais.latam{
         display: block;
       }
     }

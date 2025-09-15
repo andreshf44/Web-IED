@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCountry } from "../CountryContext";
 
 export const newsData = [
   {
@@ -247,6 +248,14 @@ export const newsData = [
 const Notice = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate(); // 👈 Hook para redirección
+  const { selectedCountryCode } = useCountry();
+
+  const filteredNews = selectedCountryCode
+  ? newsData.filter((news) => news.country.code.toLowerCase() === selectedCountryCode)
+  : newsData;
+
+  const currentNews = filteredNews[currentIndex % filteredNews.length];
+
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % newsData.length);
@@ -261,7 +270,7 @@ const Notice = () => {
     }
   };
 
-  const currentNews = newsData[currentIndex];
+ 
 
   return (
     <div className="enterprise-page">

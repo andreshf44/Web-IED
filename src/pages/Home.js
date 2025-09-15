@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { newsData } from "../components/Services/Notice";
 import { useNavigate } from "react-router-dom";
+import { useCountry } from "../components/CountryContext";
 
 
 const Home = () => {
@@ -54,10 +55,9 @@ const Home = () => {
 
   const navigate = useNavigate();
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
-  const currentNews = newsData[currentNewsIndex];
 
   const nextSlide = () => {
-    setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % newsData.length);
+    setCurrentNewsIndex((prevIndex) => (prevIndex + 1) % filteredNews.length);
   };
 
   const handleVerMas = (news) => {
@@ -67,6 +67,17 @@ const Home = () => {
       navigate(`/noticia/${news.id}`);
     }
   };
+
+  const { selectedCountryCode } = useCountry();
+
+  const filteredNews = selectedCountryCode
+  ? newsData.filter(
+      (news) => news.country.code.toLowerCase() === selectedCountryCode
+    )
+  : newsData;
+
+  const currentNews = filteredNews.length > 0 ? filteredNews[currentNewsIndex % filteredNews.length] : null;
+
 
   return (
     <div className={`home ${scrolled ? 'scrolled' : ''}`}>
@@ -85,7 +96,7 @@ const Home = () => {
               type="button"
               class="btn btnSlide"
             >
-              Descubre más
+              Contáctanos
             </button>
             <div className="dots-container">
               {slides.map((_, index) => (
@@ -125,30 +136,39 @@ const Home = () => {
      
       {/* Carrusel de noticias */}
       <section className="news-carousel">
-        <div className="country-section">
-          <span>
-            <img
-              src={`https://flagcdn.com/${currentNews.country.code}.svg`}
-              width="24"
-              alt={`Bandera de ${currentNews.country.name}`}
-            />
-            {currentNews.country.name}
-          </span>
-        </div>
-        <div className="news-card home-news">
-          <img src={currentNews.image} alt={currentNews.title} />
-          <div className="news-text">
-            <h2>{currentNews.title}</h2>
-            <p>{currentNews.summary}</p>
-            <button className="ver-mas" onClick={() => handleVerMas(currentNews)}>
-              Ver más →
-            </button>
-          </div>
-          <button className="next-button" onClick={nextSlide}>
-            <i className="fa fa-chevron-right"></i>
+  {currentNews ? (
+    <>
+      <div className="country-section">
+        <span>
+          <img
+            src={`https://flagcdn.com/${currentNews.country.code}.svg`}
+            width="24"
+            alt={`Bandera de ${currentNews.country.name}`}
+          />
+          {currentNews.country.name}
+        </span>
+      </div>
+      <div className="news-card home-news">
+        <img src={currentNews.image} alt={currentNews.title} />
+        <div className="news-text">
+          <h2>{currentNews.title}</h2>
+          <p>{currentNews.summary}</p>
+          <button className="ver-mas" onClick={() => handleVerMas(currentNews)}>
+            Ver más →
           </button>
         </div>
-      </section>
+        <button className="next-button" onClick={nextSlide}>
+          <i className="fa fa-chevron-right"></i>
+        </button>
+      </div>
+    </>
+  ) : (
+    <div className="no-news">
+      <p>No hay noticias disponibles para este país.</p>
+    </div>
+  )}
+</section>
+
 
     </div>
   );
