@@ -479,6 +479,9 @@ header.scrolled.visible.pe .container-menu{
           border: none;
           background: #F2F2F2;
         }
+        textarea{
+          margin-bottom: 25px;
+        }
       }
       button{
         border: none;

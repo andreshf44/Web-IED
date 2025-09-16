@@ -354,15 +354,15 @@ const Header = ({ onWhatsappClick }) => {
             <div className='top-section'>
               <div className='pais chile'>
                 <span><img src="https://flagcdn.com/cl.svg" width="24" alt="Bandera de Chile" /> Chile</span>
-                <p>chile@educaciondigitalsa.com</p>
+                <p>chile@i-edglobal.com</p>
               </div>
               <div className='pais mexico'>
                 <span><img src="https://flagcdn.com/mx.svg" width="24" alt="Bandera de México" /> México</span>
-                <p>mexico@educaciondigitalsa.com</p>
+                <p>mexico@i-edglobal.com</p>
               </div>
               <div className='pais peru'>
                 <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
-                <p>peru@educaciondigitalsa.com</p>
+                <p>peru@i-edglobal.com</p>
               </div>
               <div className='pais latam'>
                 <span className='latam'><img src="https://img.icons8.com/ios-filled/50/globe--v1.png" width="21" alt="LATAM icon" /> LATAM</span>
