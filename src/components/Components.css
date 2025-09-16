@@ -87,7 +87,7 @@
     gap:7px;
     align-items: center;
     cursor: pointer;
-    width: 70px;
+    width: 45px;
     justify-content: flex-end;
     .whatsapp-floating-button{
       position:inherit;
@@ -98,6 +98,11 @@
           height: 30px;
         }
       }
+    }
+    .country-content{
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
     span{
       font-weight: 600;
@@ -293,14 +298,15 @@
         p.subtitle{
           margin-top:16px
         }
-        .top-section, .down-section{
+        .top-section{
           margin: 15px 0;
           display: flex;
           width: -webkit-fill-available;
           justify-content: space-between;
+          flex-wrap: wrap;
           .pais{
             text-align: start;
-            width: 270px;
+            width: 415px;
             span{
               border-bottom: none;
               display: flex;
@@ -376,30 +382,6 @@ header.scrolled.visible.cl .container-menu{
     }
   }
 }
-header.scrolled.visible.ar .container-menu{
-  .content-option{
-    .columns-container.content-contactanos{
-      .pais{
-        display: none;
-      }
-      .pais.argentina, .pais.latam{
-        display: block;
-      }
-    }
-  }
-}
-header.scrolled.visible.co .container-menu{
-  .content-option{
-    .columns-container.content-contactanos{
-      .pais{
-        display: none;
-      }
-      .pais.colombia, .pais.latam{
-        display: block;
-      }
-    }
-  }
-}
 header.scrolled.visible.mx .container-menu{
   .content-option{
     .columns-container.content-contactanos{
@@ -436,17 +418,27 @@ header.scrolled.visible.pe .container-menu{
   .text-contacto{
     display: none;
   }
-  a.container-icon-header:hover {
+  .open-form-button, .container-icon-header{
+    border: none;
+    background: transparent;
+  }
+  .open-form-button:hover{
+    img{
+      transform: scale(1.2);
+    }
+  }
+  .container-icon-header:hover {
     display: flex;
     gap: 5px;
     box-shadow: none;
     background: #101e3f;
     width: auto;
     padding-right: 12px;
+    padding-left: 0;
     color: #fff;
     height: 26px;
     border-radius: 16px;
-    /* align-items: center; */
+    align-items: center; 
     text-decoration: none;
     .text-contacto{
       display: block;
@@ -481,7 +473,7 @@ header.scrolled.visible.pe .container-menu{
         font-weight: 600;
         padding: 0px 10px;
         input{
-          padding: 9px 0px;
+          padding: 9px;
           margin: 3px 0 15px;
           border-radius: 16px;
           border: none;

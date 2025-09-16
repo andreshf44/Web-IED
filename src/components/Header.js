@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCountry } from "./CountryContext";
 
 
-const Header = () => {
+const Header = ({ onWhatsappClick }) => {
   const [scrolled, setScrolled] = useState(false); // Estado para saber si hemos hecho scroll
   const [selectedService, setSelectedService] = useState(null); // Estado para almacenar el servicio seleccionado
   const [isMenuVisible, setIsMenuVisible] = useState(false); // Estado para controlar la visibilidad del menu
@@ -352,20 +352,6 @@ const Header = () => {
           <div className="columns-container content-contactanos">
             <p className='subtitle'>Comunícate con nosotros a través de nuestro correo electrónico:</p>
             <div className='top-section'>
-              <div className='pais argentina'>
-                <span><img src="https://flagcdn.com/ar.svg" width="24"/>Argentina</span>
-                <p>argentina@educaciondigitalsa.com</p>
-              </div>
-              <div className='pais colombia'>
-                <span><img src="https://flagcdn.com/co.svg" width="24"/> Colombia</span>
-                <p>colombia@educaciondigitalsa.com</p>
-              </div>
-              <div className='pais peru'>
-                <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
-                <p>peru@educaciondigitalsa.com</p>
-              </div>
-            </div>
-            <div className='down-section'>
               <div className='pais chile'>
                 <span><img src="https://flagcdn.com/cl.svg" width="24" alt="Bandera de Chile" /> Chile</span>
                 <p>chile@educaciondigitalsa.com</p>
@@ -373,6 +359,10 @@ const Header = () => {
               <div className='pais mexico'>
                 <span><img src="https://flagcdn.com/mx.svg" width="24" alt="Bandera de México" /> México</span>
                 <p>mexico@educaciondigitalsa.com</p>
+              </div>
+              <div className='pais peru'>
+                <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
+                <p>peru@educaciondigitalsa.com</p>
               </div>
               <div className='pais latam'>
                 <span className='latam'><img src="https://img.icons8.com/ios-filled/50/globe--v1.png" width="21" alt="LATAM icon" /> LATAM</span>
@@ -569,26 +559,26 @@ const Header = () => {
         </nav>
       )}
       {scrolled && (
-        <div onClick={toggleCountriesList}>
+        <div>
         <div className={`pais-section ${isCountriesVisible ? 'active' : ''}`}>
           <div className="whatsapp-floating-button">
-            <a className='container-icon-header'>
-              <img className='header-icon' src="/whatsapp-icon.png" alt="WhatsApp" />
-              <span className='text-contacto'>Contáctanos</span>
-            </a>
+            <button className="container-icon-header" onClick={onWhatsappClick}>
+              <img className="header-icon" src="/whatsapp-icon.png" alt="WhatsApp" />
+              <span className="text-contacto">Contáctanos</span>
+            </button>
           </div>
+          <div className='country-content' onClick={toggleCountriesList}>
           <span>{selectedCountry}</span> {/* Muestra el código del país o un texto predeterminado */}
           <i className="fas fa-globe"></i> {/* Icono del planeta */}
           <i className="fas fa-chevron-down"></i> {/* Icono de la flecha hacia abajo */}
+          </div>
         </div>
   
         {/* Solo mostramos la lista si isCountriesVisible es true */}
         {isCountriesVisible && (
           <ul className="countries-list">
             <li>Países</li>
-            <li onClick={() => handleCountrySelect("Argentina", "AR")}>Argentina</li>
             <li onClick={() => handleCountrySelect("Chile", "CL")}>Chile</li>
-            <li onClick={() => handleCountrySelect("Colombia", "CO")}>Colombia</li>
             <li onClick={() => handleCountrySelect("México", "MX")}>México</li>
             <li onClick={() => handleCountrySelect("Perú", "PE")}>Perú</li>
           </ul>

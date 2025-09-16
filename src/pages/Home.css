@@ -124,6 +124,8 @@ z-index: 1;  /* Asegura que esté encima de la imagen */
         }
       }
       .btnSlide {
+        position: relative;
+        z-index: 2;
         border-radius: 24px;
         font-size: 17px;
         margin-left: 52px;

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useCountry } from "../components/CountryContext";
 
 
-const Home = () => {
+const Home = ({ openContactForm }) => {
   // Array con las rutas de las imágenes para el carrusel
   const slides = [
     "/ImagenHome.jpg",  // Asegúrate de tener estas imágenes en la carpeta pública o en una ruta correcta
@@ -94,7 +94,8 @@ const Home = () => {
             <h3 dangerouslySetInnerHTML={{ __html: slideTexts[currentSlide] }} />
             <button
               type="button"
-              class="btn btnSlide"
+              className="btn btnSlide"
+              onClick={openContactForm}  // ← esto activa el formulario
             >
               Contáctanos
             </button>

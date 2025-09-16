@@ -1,61 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import './Components.css';  // Importamos los estilos de Header
+import React from 'react';
+import './Components.css';
 
-const WhatsappFloatingButton = () => {
-  const phoneNumber = '1234567890'; // Número de WhatsApp (reemplaza con el número real)
-  const [isFormVisible, setIsFormVisible] = useState(false); // Nuevo estado para visibilidad del formulario
-
-  // Función para manejar la visibilidad del formulario de contacto
-  // Mostrar  formulario
-  const toggleContactForm = () => {
-    setIsFormVisible(!isFormVisible);
-  };
-
-  // Cerrar formulario
-  const closeForm = (e) => {
-    e.stopPropagation(); // Previene que el click se propague al contenedor padre
-    setIsFormVisible(false);
-  };
-
+const WhatsappFloatingButton = ({ isFormVisible, openForm, closeForm }) => {
   return (
-    <div className="whatsapp-floating-button" onClick={toggleContactForm}>
+    <div className="whatsapp-floating-button" onClick={(e) => e.stopPropagation()}>
       {!isFormVisible && (
-      <a 
-        /*href={`https://wa.me/${phoneNumber}`} */
-        target="_blank" 
-        rel="noopener noreferrer"
-        aria-label="Contactar por WhatsApp"
-      >
-        <img className='body-icon' src="/whatsapp-icon1.png" alt="WhatsApp" />
-      </a>
+        <button className="open-form-button" onClick={openForm}> {/* <-- Esto es lo importante */}
+          <img className="body-icon" src="/whatsapp-icon1.png" alt="WhatsApp" />
+        </button>
       )}
-      {isFormVisible && ( 
-        <div className='form-contacto'>
-        <div className='top-section'>
-          <span>Chat iED</span>
-          <i className="fas fa-minus" onClick={closeForm}></i>
-        </div>
-        <div className='down-section'>
-          <p>Hola 👋 Aquí puedes dejar tu consulta:</p>
-          <div className='data-section'>
-            <label>Nombre y Apellido</label>
-            <input></input>
 
-            <label>Correo electrónico</label>
-            <input></input>
-
-            <label>País</label>
-            <input></input>
-
-            <label>Mensaje</label>
-            <input></input>
+      {isFormVisible && (
+        <div className="form-contacto">
+          <div className="top-section">
+            <span>Chat iED</span>
+            <i className="fas fa-minus" onClick={closeForm}></i>
           </div>
-          <button>Enviar</button>
-        </div>
+          <div className="down-section">
+            <p>Hola 👋 Aquí puedes dejar tu consulta:</p>
+            <div className="data-section">
+              <label>Nombre y Apellido</label>
+              <input type="text" />
+
+              <label>Correo electrónico</label>
+              <input type="email" />
+
+              <label>País</label>
+              <input type="text" />
+
+              <label>Mensaje</label>
+              <input type="text" />
+            </div>
+            <button>Enviar</button>
+          </div>
         </div>
       )}
     </div>
-   
   );
 };
 

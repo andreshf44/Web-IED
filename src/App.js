@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState } from 'react';
 
 import Header from './components/Header';
 import Home from './pages/Home';
@@ -18,14 +19,19 @@ import './App.css';
 import './Web.css';
 
 function App() {
+  const [isContactFormVisible, setIsContactFormVisible] = useState(false); 
+
+  const openContactForm = () => setIsContactFormVisible(true);
+  const closeContactForm = () => setIsContactFormVisible(false);
+
   return (
     <CountryProvider>
       <Router>
         <div className="App">
-          <Header />
+          <Header onWhatsappClick={openContactForm} />
           
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home openContactForm={openContactForm} />}/>
             <Route path="/enterprise" element={<Enterprise />} />
             <Route path="/university" element={<University />} />
             <Route path="/goberment" element={<Goberment />} />
@@ -37,8 +43,12 @@ function App() {
             <Route path="/noticia/:id" element={<NewsDetail />} />
           </Routes>
 
-          <div className='container-wpp'>
-            <WhatsappFloat />
+          <div className="container-wpp">
+            <WhatsappFloat 
+              isFormVisible={isContactFormVisible}
+              openForm={openContactForm}
+              closeForm={closeContactForm}
+            />
           </div>
         </div>
       </Router>
