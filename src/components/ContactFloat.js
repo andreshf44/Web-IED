@@ -9,9 +9,9 @@ const WhatsappFloatingButton = ({ isFormVisible, openForm, closeForm }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await fetch('https://formspree.io/f/xkgvaeqp', {
+      const response = await fetch('http://localhost:5000/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -21,11 +21,11 @@ const WhatsappFloatingButton = ({ isFormVisible, openForm, closeForm }) => {
           mensaje
         }),
       });
-
+  
       console.log('Respuesta status:', response.status);
       const respText = await response.text();
       console.log('Respuesta texto:', respText);
-
+  
       if (response.ok) {
         alert('¡Mensaje enviado!');
         setNombre('');
