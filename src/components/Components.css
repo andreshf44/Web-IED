@@ -153,7 +153,7 @@
   position: fixed;
   border-top: 1px solid #dddada80;
   height: auto;
-  width: 79%;
+  width: 80%;
   background: white;
   top: 78px;
   left: 0;
@@ -401,6 +401,18 @@ header.scrolled.visible.pe .container-menu{
         display: none;
       }
       .pais.peru, .pais.latam{
+        display: block;
+      }
+    }
+  }
+}
+header.scrolled.visible.ar .container-menu{
+  .content-option{
+    .columns-container.content-contactanos{
+      .pais{
+        display: none;
+      }
+      .pais.argentina, .pais.latam{
         display: block;
       }
     }
@@ -965,8 +977,126 @@ header.scrolled.visible.pe .container-menu{
   margin: 1rem 0;
 }
 
+/*Responsive mobile*/
+
+/* Estilo del ícono hamburguesa */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  margin-left: 1rem;
+  position: absolute;
+  right: 170px;
+}
+
+.hamburger-menu span {
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Mostrar solo en móviles */
+@media screen and (max-width: 790px) and (orientation: portrait) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto !important;
+    padding: 1rem;
+    z-index: 2;
+    li {
+      margin: 0 20px !important;
+      padding: 0px !important;
+    }
+  }
+
+  .navbar.mobile-open {
+    display: flex;
+  }
+
+  .header.scrolled{
+    width: 100vw;
+  }
+
+  .container-menu {
+    width: 90%;
+    top: 195px;
+  }
+
+  .carousel {
+    flex-direction: column-reverse;
+    img{
+      width: 700px !important;
+    }
+  }
+
+  .home-data {
+    flex-direction: column;
+    gap:25px;
+    i{
+      display: none;
+    }
+    .container-data {
+      width: 90% !important;
+      height: auto !important;
+
+    }
+  }
+
+  .news-carousel {
+    width: auto;
+    .news-card {
+      flex-direction: column;
+    }
+  }
 
 
+  /*notice section*/
+  .hero-overlay {
+    margin: 10px;
+  }
+  .fixed-section {
+    .tabs {
+      overflow: auto;
+      width: 100%;
+      .tab-btn {
+        min-width: 115px;
+      }
+    }
+  }
+
+  .first-content {
+    flex-direction: column;
+    width: auto !important;
+    .box-data {
+      width: auto !important;
+    }
+    .first-box {
+      border-right: none !important;
+    }
+  }
+
+  .second-content, .third-content {
+    flex-direction: column-reverse;
+    height: auto !important;
+  }
+  .datos-container, .tech-container{
+    .second-content {
+      flex-direction: column;
+    }
+  }
+
+}
 
 
 

@@ -17,6 +17,7 @@ const Header = ({ onWhatsappClick }) => {
   const { setSelectedCountryCode } = useCountry();
   const location = useLocation();
   const navigate = useNavigate(); //noticias
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Datos de los servicios
   
@@ -364,6 +365,10 @@ const Header = ({ onWhatsappClick }) => {
                 <span><img src="https://flagcdn.com/pe.svg" width="24"/> Perú</span>
                 <p>peru@i-edglobal.com</p>
               </div>
+              <div className='pais argentina'>
+                <span><img src="https://flagcdn.com/ar.svg" width="24" alt="Bandera de Argentina" /> Argentina</span>
+                <p>argentina@i-edglobal.com</p>
+              </div>
               <div className='pais latam'>
                 <span className='latam'><img src="https://img.icons8.com/ios-filled/50/globe--v1.png" width="21" alt="LATAM icon" /> LATAM</span>
                 <p>latam@i-edglobal.com</p>
@@ -378,29 +383,38 @@ const Header = ({ onWhatsappClick }) => {
 
   // Usamos useEffect para agregar el listener de scroll cuando el componente se monta
   useEffect(() => {
-    if (location.pathname === "/enterprise" || 
-        location.pathname === "/university" || 
-        location.pathname === "/goberment" || 
-        location.pathname === "/coursera" || 
-        location.pathname === "/speex" || 
-        location.pathname === "/sence" || 
-        location.pathname === "/nosotros" || 
-        location.pathname === "/notice" || 
-        location.pathname.startsWith("/noticia/")) {
+    const staticScrolledRoutes = [
+      "/enterprise",
+      "/university",
+      "/goberment",
+      "/coursera",
+      "/speex",
+      "/sence",
+      "/nosotros",
+      "/notice",
+    ];
+  
+    const isForceScrolled =
+      staticScrolledRoutes.includes(location.pathname) ||
+      location.pathname.startsWith("/noticia/");
+  
+    if (isForceScrolled) {
       setScrolled(true);
-    } else {
-      // Función que se llama cada vez que el usuario hace scroll
-      const handleScroll = () => {
-        if (window.scrollY > 0) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
-      };
-
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
+      return; // No agregamos el listener en estas rutas
     }
+  
+    const handleScroll = () => {
+      if (window.innerWidth >= 1140) {
+        setScrolled(window.scrollY > 0);
+      } else {
+        setScrolled(true);
+      }
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Llamar inmediatamente para el primer render
+  
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [location.pathname]);
 
   //Manejo del despliegue del menu header
@@ -492,10 +506,18 @@ const Header = ({ onWhatsappClick }) => {
           className="logo" 
         />
       </div>
+      <div 
+        className="hamburger-menu" 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       
 
-      {scrolled && (  // Solo mostramos el menú cuando hay scroll
-        <nav className="navbar">
+      {(scrolled || isMobileMenuOpen) && (  // Solo mostramos el menú cuando hay scroll
+        <nav className={`navbar ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <ul>
             <li 
                className={`nav-item ${activeMenuItem === 1 ? 'active' : ''}`} 
@@ -581,6 +603,7 @@ const Header = ({ onWhatsappClick }) => {
             <li onClick={() => handleCountrySelect("Chile", "CL")}>Chile</li>
             <li onClick={() => handleCountrySelect("México", "MX")}>México</li>
             <li onClick={() => handleCountrySelect("Perú", "PE")}>Perú</li>
+            <li onClick={() => handleCountrySelect("Argentina", "AR")}>Argentina</li>
           </ul>
         )}
         </div>

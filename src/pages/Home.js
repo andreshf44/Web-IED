@@ -53,6 +53,24 @@ const Home = ({ openContactForm }) => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 1140) { // Solo aplicar scroll en escritorio
+        setScrolled(window.scrollY > 0);
+      } else {
+        setScrolled(true); // En móviles siempre mostrar el contenido como "scrolleado"
+      }
+    };
+  
+    // Escuchamos el scroll
+    window.addEventListener('scroll', handleScroll);
+  
+    // Ejecutar una vez al cargar
+    handleScroll();
+  
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const navigate = useNavigate();
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
 
