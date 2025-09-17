@@ -1030,7 +1030,7 @@ header.scrolled.visible.ar .container-menu{
 
   .container-menu {
     width: 90%;
-    top: 195px;
+    top: 190px;
   }
 
   .carousel {
@@ -1116,6 +1116,7 @@ header.scrolled.visible.ar .container-menu{
     overflow: auto;
     max-height: 60%;
     width: 90%;
+    top: 170px;
     a.ver-mas-link{
       margin-right: 60px;
     }
