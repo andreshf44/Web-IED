@@ -212,7 +212,7 @@ const Header = ({ onWhatsappClick }) => {
       name: 'Coursera',
       description: (
         <>
-          <div className="columns-container">
+          <div className="columns-container content-coursera">
             {/* Columna 1 */}
             <div className="column coursera">
               <h4>Para empresas</h4>

@@ -1121,6 +1121,10 @@ header.scrolled.visible.ar .container-menu{
     }
   }
 
+  .columns-container.content-speex, .columns-container.content-coursera {
+    flex-direction: column;
+  }
+
   .carousel {
     .section1 {
       h3 {
