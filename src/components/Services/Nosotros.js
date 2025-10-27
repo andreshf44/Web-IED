@@ -63,19 +63,55 @@ const Nosotros = () => {
                   <p>Es director de la Asociación Chilena de Empresas de Tecnologías de la Información (ACTI) y preside la Mesa de Capital Humano.
                   </p>
                   <p className="p-subtitle-lista">Experto en:</p>
-                  <ul className="benefits-list">
+                    <ul className="benefits-list">
                     <li>Formación de talento.</li>
                     <li>Inteligencia Artificial aplicada a la capacitación.</li>
                     <li>Brechas de habilidades en América Latina.</li>
                     <li>Políticas públicas en educación y empleo.</li>
-                </ul>
+                    </ul>
                 </div>             
-              </div> 
+            </div> 
+
+                <div className="document-links" style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+                    <a
+                    href="https://drive.google.com/file/d/1BfAj7-BRnu6jdOR7yJIVZvRcwcPLDfZx/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-doc"
+                    style={{
+                        color: '#58b8da',
+                        padding: '10px 20px',
+                        border: '2px solid #58b8da',
+                        borderRadius: '5px',
+                        textDecoration: 'none',
+                        fontWeight: '600'
+                    }}
+                    >
+                    Reglamento interno de higiene y seguridad i-ED Global
+                    </a>
+
+                    <a
+                    href="https://drive.google.com/file/d/1oF8-xBWCQ6deRijE2tsZ_e2tenMPI5lx/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-doc"
+                    style={{
+                        color: '#58b8da',
+                        padding: '10px 20px',
+                        border: '2px solid #58b8da',
+                        borderRadius: '5px',
+                        textDecoration: 'none',
+                        fontWeight: '600'
+                    }}
+                    >
+                        Política Medioambiental i-ED Global
+                    </a>
+                </div>
          
 
-              <h3 className="mensaje-final">Transforma el talento de tu organización con soluciones de clase mundial.</h3>         
+            <h3 className="mensaje-final">Transforma el talento de tu organización con soluciones de clase mundial.</h3>         
         </div>
-      );
+    );
 };
     
 export default Nosotros;
