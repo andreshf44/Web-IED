@@ -72,7 +72,7 @@ const Nosotros = () => {
                 </div>             
             </div> 
 
-                <div className="document-links" style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+                <div className="document-links" style={{ display: 'flex', gap: '1rem', marginTop: '2rem', flexDirection: 'column', alignItems: 'center' }}>
                     <a
                     href="https://drive.google.com/file/d/1BfAj7-BRnu6jdOR7yJIVZvRcwcPLDfZx/view?usp=sharing"
                     target="_blank"
