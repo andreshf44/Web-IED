@@ -106,6 +106,23 @@ const Nosotros = () => {
                     >
                         Política Medioambiental i-ED Global
                     </a>
+
+                    <a
+                    href="https://drive.google.com/file/d/1F_uxVKoEjCPQgwRNeBJjTFFNzVLnc7SR/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-doc"
+                    style={{
+                        color: '#58b8da',
+                        padding: '10px 20px',
+                        border: '2px solid #58b8da',
+                        borderRadius: '5px',
+                        textDecoration: 'none',
+                        fontWeight: '600'
+                    }}
+                    >
+                        Programa de Integridad Empresarial i-ED Educación Digital
+                    </a>
                 </div>
          
 
